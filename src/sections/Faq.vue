@@ -43,7 +43,6 @@ import { ChevronDownIcon } from "@heroicons/vue/24/outline";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const faqs = ref([
@@ -90,9 +89,7 @@ const toggleAnswer = (index) => {
   faqs.value[index].open = !faqs.value[index].open;
 };
 
-// On mounted, trigger GSAP animations for elements in the #faq section
 onMounted(() => {
-  // Animation for the FAQ title
   gsap.from(".gsap-faq-title", {
     scrollTrigger: {
       trigger: "#faq",
@@ -104,7 +101,6 @@ onMounted(() => {
     ease: "power3.out",
   });
 
-  // Animation for the FAQ description
   gsap.from(".gsap-faq-description", {
     scrollTrigger: {
       trigger: "#faq",
@@ -117,7 +113,6 @@ onMounted(() => {
     ease: "power3.out",
   });
 
-  // Animation for the FAQ items
   gsap.from(".gsap-faq-items", {
     scrollTrigger: {
       trigger: "#faq",

@@ -13,7 +13,6 @@
       class="mx-auto mt-16 max-w-xl sm:mt-20 gsap-contact-form"
     >
       <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-        <!-- Champ prénom -->
         <div>
           <label
             for="first-name"
@@ -32,7 +31,6 @@
             />
           </div>
         </div>
-        <!-- Champ nom de famille -->
         <div>
           <label
             for="last-name"
@@ -51,7 +49,6 @@
             />
           </div>
         </div>
-        <!-- Champ email -->
         <div class="sm:col-span-2">
           <label
             for="email"
@@ -70,7 +67,6 @@
             />
           </div>
         </div>
-        <!-- Champ message -->
         <div class="sm:col-span-2">
           <label
             for="message"
@@ -88,7 +84,6 @@
             ></textarea>
           </div>
         </div>
-        <!-- Switch de politique de confidentialité -->
         <SwitchGroup
           as="div"
           class="flex gap-x-4 sm:col-span-2 gsap-contact-switch"
@@ -123,13 +118,11 @@
           Vous devez accepter la politique de confidentialité pour envoyer le
           formulaire.
         </div>
-        <!-- reCAPTCHA v2 -->
         <div
           class="g-recaptcha mt-4"
           data-sitekey="6Ld5dmUqAAAAACd168BGNtu1qEz53-tCrex83G3G"
         ></div>
       </div>
-      <!-- Bouton de soumission -->
       <div class="mt-10 gsap-contact-button">
         <button
           type="submit"
@@ -149,7 +142,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Switch, SwitchGroup, SwitchLabel } from "@headlessui/vue";
 import emailjs from "emailjs-com";
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const form = ref({

@@ -9,11 +9,11 @@
 </template>
 
 <script lang="ts">
-import Hero from "@/sections/Hero.vue";
-import Services from "@/sections/Services.vue";
+import Hero from "./Hero.vue";
+import Services from "./Services.vue";
 // import Testimonials from "@/sections/Testimonials.vue";
-import Faq from "@/sections/Faq.vue";
-import Contact from "@/sections/Contact.vue";
+import Faq from "./Faq.vue";
+import Contact from "./Contact.vue";
 
 export default {
   name: "Home",

@@ -3,7 +3,6 @@
     <div
       class="container mx-auto flex flex-col md:flex-row items-center justify-between"
     >
-      <!-- Left Text Section -->
       <div class="md:w-1/2 text-center md:text-left">
         <h1
           class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 gsap-title"
@@ -15,7 +14,6 @@
           déploiement, nous vous accompagnons à chaque étape.
         </p>
 
-        <!-- CTA Buttons -->
         <div
           class="flex flex-col items-center space-y-4 md:flex-row md:space-x-4 md:space-y-0 gsap-buttons"
         >
@@ -36,10 +34,9 @@
         </div>
       </div>
 
-      <!-- Right Image Section -->
       <div class="md:w-1/2 mt-10 md:mt-0 gsap-image">
         <img
-          src="@/assets/0e055bd6fc948f460fe50aa193ac36e6.jpg"
+          src="../assets/0e055bd6fc948f460fe50aa193ac36e6.jpg"
           alt="Business Team"
           class="rounded-lg shadow-md object-cover w-full h-full"
         />
@@ -54,12 +51,9 @@ import { ArrowRightIcon } from "@heroicons/vue/24/outline";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-// On mounted, trigger GSAP animations for elements in the #accueil section
 onMounted(() => {
-  // Animation for the title
   gsap.from(".gsap-title", {
     scrollTrigger: {
       trigger: "#accueil",
@@ -71,7 +65,6 @@ onMounted(() => {
     ease: "power3.out",
   });
 
-  // Animation for the description
   gsap.from(".gsap-description", {
     scrollTrigger: {
       trigger: "#accueil",
@@ -84,7 +77,6 @@ onMounted(() => {
     ease: "power3.out",
   });
 
-  // Animation for the buttons
   gsap.from(".gsap-buttons", {
     scrollTrigger: {
       trigger: "#accueil",
@@ -97,7 +89,6 @@ onMounted(() => {
     ease: "power3.out",
   });
 
-  // Animation for the image
   gsap.from(".gsap-image", {
     scrollTrigger: {
       trigger: "#accueil",

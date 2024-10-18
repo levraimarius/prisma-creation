@@ -3,7 +3,7 @@
     <div class="container mx-auto flex flex-wrap justify-between gap-8">
       <div class="flex-1 min-w-[200px]">
         <img
-          src="@/assets/logo_prismacreation_footer.svg"
+          src="../../assets/logo_prismacreation_footer.svg"
           alt="Logo"
           class="h-24 mb-4"
         />

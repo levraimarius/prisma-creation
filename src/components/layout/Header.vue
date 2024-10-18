@@ -73,7 +73,6 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 
-// Navigation items
 const navigation = [
   { name: "Accueil", href: "#accueil", current: true },
   { name: "Nos services", href: "#services", current: false },
@@ -82,10 +81,8 @@ const navigation = [
   { name: "Contact", href: "#contact", current: false },
 ];
 
-// Active section ref
 const activeSection = ref("#accueil");
 
-// Smooth scroll function
 const smoothScroll = (hash) => {
   const target = document.querySelector(hash);
   if (target) {
@@ -96,7 +93,6 @@ const smoothScroll = (hash) => {
   }
 };
 
-// Detect section in view
 const detectSectionInView = () => {
   const sections = navigation.map((item) => document.querySelector(item.href));
   const scrollPos = window.scrollY + window.innerHeight / 2;
@@ -112,12 +108,10 @@ const detectSectionInView = () => {
   });
 };
 
-// Add scroll event listener
 onMounted(() => {
   window.addEventListener("scroll", detectSectionInView);
 });
 
-// Remove event listener on component unmount
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", detectSectionInView);
 });

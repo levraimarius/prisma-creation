@@ -8,7 +8,6 @@
         Des solutions sur mesure pour votre présence en ligne.
       </p>
 
-      <!-- Tabs for Monthly and Annual -->
       <div
         class="flex flex-col items-center space-y-4 md:flex-row md:justify-center md:space-y-0 md:space-x-8 mb-8 buttons"
         ref="billingTabs"
@@ -37,12 +36,10 @@
         </button>
       </div>
 
-      <!-- Pricing Plans -->
       <div
         class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left"
         ref="pricingPlans"
       >
-        <!-- Plan 1 -->
         <div class="bg-white shadow-lg rounded-lg p-8 flex flex-col h-full">
           <h3 class="text-xl font-semibold text-gray-900 mb-4">
             Création de site vitrine
@@ -78,7 +75,6 @@
           </div>
         </div>
 
-        <!-- Plan 2 (Highlighted as Popular) -->
         <div
           class="relative bg-white shadow-lg rounded-lg p-8 flex flex-col h-full border-2 border-indigo-500"
           ref="popularPlan"
@@ -122,7 +118,6 @@
           </div>
         </div>
 
-        <!-- Plan 3 -->
         <div
           class="bg-white shadow-lg rounded-lg p-8 flex flex-col h-full"
           ref="growthPlan"
