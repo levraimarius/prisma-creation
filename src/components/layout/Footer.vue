@@ -7,21 +7,56 @@
           alt="Logo"
           class="h-24 mb-4"
         />
-        <p class="mb-4">
-          Construire un monde meilleur en créant des interfaces élégantes.
-        </p>
+        <p class="mb-4">Votre présence en ligne, sans complexité.</p>
+      </div>
+
+      <div class="flex-1 min-w-[200px]">
+        <h3 class="text-white font-semibold mb-4">À propos</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="/#services" class="hover:text-white transition"
+              >Nos services</a
+            >
+          </li>
+          <li>
+            <a href="/#faq" class="hover:text-white transition">Questions</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex-1 min-w-[200px]">
+        <h3 class="text-white font-semibold mb-4">Un projet en tête ?</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="/#contact" class="hover:text-white transition"
+              >Contactez-nous</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://cal.com/marius-thiesset/consultation-de-site-web"
+              target="_blank"
+              class="hover:text-white transition"
+              >Prendre un rendez-vous</a
+            >
+          </li>
+        </ul>
       </div>
 
       <div class="flex-1 min-w-[200px]">
         <h3 class="text-white font-semibold mb-4">Légal</h3>
         <ul class="space-y-2">
           <li>
-            <a href="/privacy-policy" class="hover:text-white transition"
+            <a
+              href="/politique-de-confidentialite"
+              class="hover:text-white transition"
               >Politique de confidentialité</a
             >
           </li>
           <li>
-            <a href="/terms-of-use" class="hover:text-white transition"
+            <a
+              href="/conditions-utilisation"
+              class="hover:text-white transition"
               >Conditions d'utilisation</a
             >
           </li>

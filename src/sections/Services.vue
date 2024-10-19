@@ -16,8 +16,8 @@
           @click="billingCycle = 'mensuel'"
           :class="[
             billingCycle === 'mensuel'
-              ? 'bg-indigo-600 text-white'
-              : 'text-indigo-600',
+              ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+              : 'text-indigo-600 hover:bg-slate-50',
             'px-6 py-2 rounded-full border border-indigo-600 transition w-max md:px-10 md:py-3 lg:px-12 lg:py-4',
           ]"
         >
@@ -27,8 +27,8 @@
           @click="billingCycle = 'annuel'"
           :class="[
             billingCycle === 'annuel'
-              ? 'bg-indigo-600 text-white'
-              : 'text-indigo-600',
+              ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+              : 'text-indigo-600 hover:bg-slate-50',
             'px-6 py-2 rounded-full border border-indigo-600 transition w-max md:px-10 md:py-3 lg:px-12 lg:py-4',
           ]"
         >
@@ -67,11 +67,13 @@
             </li>
           </ul>
           <div class="flex justify-center mt-6">
-            <button
+            <a
+              href="https://cal.com/marius-thiesset/consultation-de-site-web"
+              target="_blank"
               class="bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md hover:bg-indigo-700 transition mt-auto"
             >
               Choisir ce plan
-            </button>
+            </a>
           </div>
         </div>
 
@@ -110,11 +112,13 @@
             </li>
           </ul>
           <div class="flex justify-center mt-6">
-            <button
+            <a
+              href="https://cal.com/marius-thiesset/consultation-de-site-web"
+              target="_blank"
               class="bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md hover:bg-indigo-700 transition mt-auto"
             >
               Choisir ce plan
-            </button>
+            </a>
           </div>
         </div>
 
@@ -149,11 +153,13 @@
             </li>
           </ul>
           <div class="flex justify-center mt-6">
-            <button
+            <a
+              href="https://cal.com/marius-thiesset/consultation-de-site-web"
+              target="_blank"
               class="bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md hover:bg-indigo-700 transition mt-auto"
             >
               Choisir ce plan
-            </button>
+            </a>
           </div>
         </div>
       </div>

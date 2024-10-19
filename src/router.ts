@@ -10,12 +10,12 @@ const routes = [
     component: Home,
   },
   {
-    path: "/privacy-policy",
+    path: "/politique-de-confidentialite",
     name: "PrivacyPolicy",
     component: PrivacyPolicy,
   },
   {
-    path: "/terms-of-use",
+    path: "/conditions-utilisation",
     name: "TermsOfUse",
     component: TermsOfUse,
   },

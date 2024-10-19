@@ -109,7 +109,9 @@
           <SwitchLabel class="text-sm leading-6 text-gray-600">
             En sélectionnant ceci, vous acceptez notre
             {{ " " }}
-            <a href="#" class="font-semibold text-indigo-600"
+            <a
+              href="/politique-de-confidentialite"
+              class="font-semibold text-indigo-600"
               >politique&nbsp;de&nbsp;confidentialité</a
             >.
           </SwitchLabel>
