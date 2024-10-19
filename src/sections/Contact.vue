@@ -114,10 +114,6 @@
             >.
           </SwitchLabel>
         </SwitchGroup>
-        <div v-if="showError" class="text-red-500 text-sm mt-2">
-          Vous devez accepter la politique de confidentialité pour envoyer le
-          formulaire.
-        </div>
         <div
           class="g-recaptcha mt-4"
           data-sitekey="6Ld5dmUqAAAAACd168BGNtu1qEz53-tCrex83G3G"
@@ -133,6 +129,15 @@
         </button>
       </div>
     </form>
+
+    <!-- Notifications -->
+    <Notification
+      v-if="showNotification"
+      :type="notificationType"
+      :title="notificationTitle"
+      :message="notificationMessage"
+      :trigger="notificationTrigger"
+    />
   </div>
 </template>
 
@@ -141,9 +146,9 @@ import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Switch, SwitchGroup, SwitchLabel } from "@headlessui/vue";
+import Notification from "../components/common/Notification.vue";
 import emailjs from "emailjs-com";
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const form = ref({
@@ -153,16 +158,17 @@ const form = ref({
   message: "",
 });
 const agreed = ref(false);
-const showError = ref(false);
-const recaptchaVerified = ref(false);
-const recaptcha = ref(null);
+const showNotification = ref(false);
+const notificationType = ref("success");
+const notificationTitle = ref("");
+const notificationMessage = ref("");
+let notificationTrigger = ref(0);
 
 const emailjsUserID = "9yMDAmgKWNcDR4lQl";
 const serviceID = "service_dlp2fdl";
 const templateID = "template_xcmfgyi";
 
 onMounted(() => {
-  // Load Google reCAPTCHA script
   const recaptchaScript = document.createElement("script");
   recaptchaScript.src = "https://www.google.com/recaptcha/api.js";
   recaptchaScript.async = true;
@@ -218,14 +224,24 @@ onMounted(() => {
 });
 
 const sendEmail = () => {
+  notificationTrigger.value++;
+
   if (!agreed.value) {
-    showError.value = true;
+    showNotification.value = true;
+    notificationType.value = "error";
+    notificationTitle.value = "Erreur";
+    notificationMessage.value =
+      "Veuillez accepter la politique de confidentialité avant d'envoyer le formulaire.";
     return;
   }
 
   const response = grecaptcha.getResponse();
   if (!response) {
-    alert("Veuillez vérifier le reCAPTCHA avant d'envoyer le formulaire.");
+    showNotification.value = true;
+    notificationType.value = "error";
+    notificationTitle.value = "Erreur";
+    notificationMessage.value =
+      "Veuillez vérifier le reCAPTCHA avant d'envoyer le formulaire.";
     return;
   }
 
@@ -240,21 +256,19 @@ const sendEmail = () => {
 
   emailjs.send(serviceID, templateID, templateParams).then(
     (response) => {
-      console.log("SUCCESS!", response.status, response.text);
-      alert("Votre message a été envoyé avec succès !");
-      showError.value = false;
+      showNotification.value = true;
+      notificationType.value = "success";
+      notificationTitle.value = "Succès";
+      notificationMessage.value = "Votre message a été envoyé avec succès !";
       grecaptcha.reset();
     },
     (error) => {
-      console.error("FAILED...", error);
-      alert("Une erreur est survenue lors de l'envoi du message.");
+      showNotification.value = true;
+      notificationType.value = "error";
+      notificationTitle.value = "Erreur";
+      notificationMessage.value =
+        "Une erreur est survenue lors de l'envoi du message.";
     }
   );
 };
 </script>
-
-<style scoped>
-.g-recaptcha {
-  margin-top: 1.5rem;
-}
-</style>
