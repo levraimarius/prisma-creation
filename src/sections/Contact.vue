@@ -121,6 +121,7 @@
         <div
           class="g-recaptcha mt-4"
           data-sitekey="6Ld5dmUqAAAAACd168BGNtu1qEz53-tCrex83G3G"
+          ref="recaptcha"
         ></div>
       </div>
       <div class="mt-10 gsap-contact-button">
@@ -142,6 +143,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Switch, SwitchGroup, SwitchLabel } from "@headlessui/vue";
 import emailjs from "emailjs-com";
 
+// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const form = ref({
@@ -152,12 +154,21 @@ const form = ref({
 });
 const agreed = ref(false);
 const showError = ref(false);
+const recaptchaVerified = ref(false);
+const recaptcha = ref(null);
 
 const emailjsUserID = "9yMDAmgKWNcDR4lQl";
 const serviceID = "service_dlp2fdl";
 const templateID = "template_xcmfgyi";
 
 onMounted(() => {
+  // Load Google reCAPTCHA script
+  const recaptchaScript = document.createElement("script");
+  recaptchaScript.src = "https://www.google.com/recaptcha/api.js";
+  recaptchaScript.async = true;
+  recaptchaScript.defer = true;
+  document.body.appendChild(recaptchaScript);
+
   gsap.from(".gsap-contact-title", {
     scrollTrigger: {
       trigger: "#contact",
@@ -212,10 +223,16 @@ const sendEmail = () => {
     return;
   }
 
+  const response = grecaptcha.getResponse();
+  if (!response) {
+    alert("Veuillez vérifier le reCAPTCHA avant d'envoyer le formulaire.");
+    return;
+  }
+
   const templateParams = {
-    firstName: form.value.firstName,
-    lastName: form.value.lastName,
-    email: form.value.email,
+    first_name: form.value.firstName,
+    last_name: form.value.lastName,
+    user_email: form.value.email,
     message: form.value.message,
   };
 
@@ -226,6 +243,7 @@ const sendEmail = () => {
       console.log("SUCCESS!", response.status, response.text);
       alert("Votre message a été envoyé avec succès !");
       showError.value = false;
+      grecaptcha.reset();
     },
     (error) => {
       console.error("FAILED...", error);
