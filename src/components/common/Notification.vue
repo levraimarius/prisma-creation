@@ -2,8 +2,8 @@
   <div
     v-if="visible"
     ref="notification"
-    :class="['fixed bottom-5 right-5', notificationTypeClass]"
-    class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden"
+    :class="['fixed', notificationPositionClass, notificationTypeClass]"
+    class="max-w-xs sm:max-w-sm md:max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden"
   >
     <div class="p-4">
       <div class="flex items-start">
@@ -70,6 +70,12 @@ let hideTimeout = null;
 
 const notificationTypeClass = computed(() => {
   return props.type === "success" ? "bg-green-50" : "bg-red-50";
+});
+
+const notificationPositionClass = computed(() => {
+  return window.innerWidth < 640
+    ? "bottom-5 left-1/2 transform -translate-x-1/2"
+    : "bottom-5 right-5";
 });
 
 const close = () => {

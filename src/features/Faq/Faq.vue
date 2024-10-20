@@ -5,7 +5,7 @@
         Quelques questions ?
       </h2>
       <p class="text-gray-600 mb-12 max-w-2xl mx-auto gsap-faq-description">
-        Retrouvez ici les réponses aux questions les plus fréquemment posées par nos clients.
+        Retrouvez ici les réponses aux questions fréquentes de nos clients.
       </p>
 
       <div class="space-y-4 gsap-faq-items">
@@ -47,40 +47,39 @@ gsap.registerPlugin(ScrollTrigger);
 
 const faqs = ref([
   {
-    question: "Combien de temps faut-il pour créer un site internet ?",
+    question: "Combien de temps faut-il pour créer un site ?",
     answer:
-      "Le délai de création d'un site internet dépend de la complexité du projet. Un site simple peut prendre entre 2 à 4 semaines, tandis que des projets plus complexes peuvent nécessiter plusieurs mois.",
+      "Le délai de création dépend du type de site. Un site vitrine peut être prêt en 1 à 2 semaines, tandis qu'une boutique en ligne ou un site personnalisé peut prendre jusqu'à 4 à 6 semaines, selon vos besoins.",
     open: false,
   },
   {
     question: "Combien coûte un site internet ?",
     answer:
-      "Le coût d'un site internet varie en fonction des fonctionnalités et de la complexité souhaitées. Je propose différents forfaits adaptés à divers budgets, allant d'options abordables pour les petites entreprises à des solutions plus avancées.",
+      "Le prix dépend des fonctionnalités et des services inclus dans votre projet. Nous proposons des forfaits mensuels pour chaque type de site, adaptés aux budgets des particuliers et petits commerçants.",
     open: false,
   },
   {
     question: "Mon site sera-t-il compatible avec les mobiles ?",
     answer:
-      "Absolument ! Tous les sites que je crée sont entièrement responsives, ce qui signifie qu'ils s'adaptent parfaitement à tout type d'appareil, y compris les smartphones et tablettes.",
+      "Absolument ! Tous nos sites sont optimisés pour s'adapter à tous les supports : ordinateurs, tablettes et smartphones.",
     open: false,
   },
   {
-    question:
-      "Pourrai-je mettre à jour le site moi-même une fois qu'il est créé ?",
+    question: "Puis-je mettre à jour le site moi-même après sa création ?",
     answer:
-      "Oui, je peux vous fournir un système de gestion de contenu (CMS) qui vous permettra de faire des modifications facilement, sans compétences techniques.",
+      "Oui, chaque projet inclut une formation et une documentation complète pour que vous puissiez gérer et mettre à jour votre site en toute autonomie via un système de gestion de contenu (CMS).",
     open: false,
   },
   {
-    question: "Proposez-vous des services de maintenance de site internet ?",
+    question: "Proposez-vous des services de maintenance ?",
     answer:
-      "Oui, je propose des forfaits de maintenance continue pour assurer la sécurité, la mise à jour et le bon fonctionnement de votre site.",
+      "Oui, nous offrons des forfaits de maintenance pour garantir la sécurité et les mises à jour de votre site. Vous n'avez à vous soucier de rien !",
     open: false,
   },
   {
-    question: "Que dois-je fournir avant de commencer la création du site ?",
+    question: "Que dois-je fournir pour démarrer la création de mon site ?",
     answer:
-      "En général, j'ai besoin de votre logo, des images que vous souhaitez utiliser, et du contenu pour vos pages. Si vous avez besoin d'aide pour le contenu, je peux également vous accompagner.",
+      "Nous aurons besoin de vos textes, images, et de vos informations de contact. Si vous avez besoin d'aide pour rédiger vos contenus, notre équipe est là pour vous accompagner.",
     open: false,
   },
 ]);

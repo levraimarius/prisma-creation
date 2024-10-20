@@ -7,11 +7,13 @@
         <h1
           class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 gsap-title"
         >
-          Créez votre site en toute simplicité
+          Votre site web sur mesure, simplement
         </h1>
         <p class="text-lg text-gray-600 mb-8 gsap-description">
-          Votre présence en ligne, sans complexité. De la création au
-          déploiement, nous vous accompagnons à chaque étape.
+          Que vous soyez un particulier ou un petit commerçant, nous vous
+          accompagnons à chaque étape pour mettre en place une présence en ligne
+          professionnelle. De la création à la mise à jour, bénéficiez d'un
+          suivi personnalisé.
         </p>
 
         <div
@@ -21,7 +23,7 @@
             href="#services"
             class="bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition w-max"
           >
-            Découvrir
+            Découvrir nos services
           </a>
           <a
             href="https://cal.com/marius-thiesset/consultation-de-site-web"
@@ -36,7 +38,7 @@
 
       <div class="md:w-1/2 mt-10 md:mt-0 gsap-image">
         <img
-          src="../assets/0e055bd6fc948f460fe50aa193ac36e6.jpg"
+          src="../../assets/0e055bd6fc948f460fe50aa193ac36e6.jpg"
           alt="Business Team"
           class="rounded-lg shadow-md object-cover w-full h-full"
         />

@@ -116,11 +116,13 @@
             >.
           </SwitchLabel>
         </SwitchGroup>
-        <div
-          class="g-recaptcha mt-4"
-          data-sitekey="6Ld5dmUqAAAAACd168BGNtu1qEz53-tCrex83G3G"
-          ref="recaptcha"
-        ></div>
+        <div class="recaptcha-container">
+          <div
+            class="g-recaptcha mt-4"
+            data-sitekey="6Ld5dmUqAAAAACd168BGNtu1qEz53-tCrex83G3G"
+            ref="recaptcha"
+          ></div>
+        </div>
       </div>
       <div class="mt-10 gsap-contact-button">
         <button
@@ -148,7 +150,7 @@ import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Switch, SwitchGroup, SwitchLabel } from "@headlessui/vue";
-import Notification from "../components/common/Notification.vue";
+import Notification from "../../components/common/Notification.vue";
 import emailjs from "emailjs-com";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -274,3 +276,12 @@ const sendEmail = () => {
   );
 };
 </script>
+
+<style scoped>
+@media (max-width: 375px) {
+  .recaptcha-container {
+    transform: scale(0.80);
+    transform-origin: 0 0;
+  }
+}
+</style>

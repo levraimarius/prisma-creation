@@ -45,8 +45,8 @@
             Création de site vitrine
           </h3>
           <p class="text-4xl font-bold text-gray-900 mb-4">
-            <span v-if="billingCycle === 'mensuel'">99€</span>
-            <span v-else>999€</span>
+            <span v-if="billingCycle === 'mensuel'">79€</span>
+            <span v-else>849€</span>
             <span class="text-lg font-normal">
               {{ billingCycle === "mensuel" ? "/mois" : "/an" }}
             </span>
@@ -54,16 +54,20 @@
           <ul class="text-gray-600 mt-6 space-y-2 flex-grow">
             <li class="flex items-center">
               <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Idéal pour les petites entreprises et les particuliers.
+              Idéal pour les particuliers et les petits entreprises.
             </li>
             <li class="flex items-center">
               <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Mettez en valeur vos services et gagnez en visibilité.
+              Présentez vos services et produits en toute simplicité.
             </li>
             <li class="flex items-center">
               <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Design adapté à tous les supports (ordinateurs, tablettes,
+              Design adaptable à tous les supports (ordinateurs, tablettes,
               smartphones).
+            </li>
+            <li class="flex items-center">
+              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
+              Documentation et accompagnement inclus.
             </li>
           </ul>
           <div class="flex justify-center mt-6">
@@ -90,8 +94,8 @@
             Boutique en ligne
           </h3>
           <p class="text-4xl font-bold text-gray-900 mb-4">
-            <span v-if="billingCycle === 'mensuel'">149€</span>
-            <span v-else>1699€</span>
+            <span v-if="billingCycle === 'mensuel'">129€</span>
+            <span v-else>1 349€</span>
             <span class="text-lg font-normal">
               {{ billingCycle === "mensuel" ? "/mois" : "/an" }}
             </span>
@@ -99,16 +103,21 @@
           <ul class="text-gray-600 mt-6 space-y-2 flex-grow">
             <li class="flex items-center">
               <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Développez votre activité avec une solution e-commerce complète.
+              Développez votre activité avec une boutique e-commerce clé en
+              main.
             </li>
             <li class="flex items-center">
               <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Gestion des produits, paiements en ligne sécurisés, et suivi des
-              commandes.
+              Gestion des paiements sécurisés et de vos produits.
             </li>
             <li class="flex items-center">
               <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Personnalisation des outils marketing pour booster vos ventes.
+              Accompagnement marketing pour maximiser vos ventes.
+            </li>
+            <li class="flex items-center">
+              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
+              Documentation complète pour gérer votre boutique de manière
+              autonome.
             </li>
           </ul>
           <div class="flex justify-center mt-6">
@@ -130,8 +139,8 @@
             Solutions personnalisées
           </h3>
           <p class="text-4xl font-bold text-gray-900 mb-4">
-            <span v-if="billingCycle === 'mensuel'">199€</span>
-            <span v-else>2299€</span>
+            <span v-if="billingCycle === 'mensuel'">149€</span>
+            <span v-else>1 549€</span>
             <span class="text-lg font-normal">
               {{ billingCycle === "mensuel" ? "/mois" : "/an" }}
             </span>
@@ -139,17 +148,21 @@
           <ul class="text-gray-600 mt-6 space-y-2 flex-grow">
             <li class="flex items-center">
               <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Création de sites web sur mesure pour répondre à des besoins
+              Création de sites web sur-mesure pour répondre à des besoins
               spécifiques.
             </li>
             <li class="flex items-center">
               <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Intégration de fonctionnalités avancées selon votre secteur
-              d'activité.
+              Intégration de fonctionnalités avancées (réservations, systèmes de
+              gestion, etc.).
             </li>
             <li class="flex items-center">
               <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Accompagnement de A à Z pour une solution unique.
+              Suivi complet du projet du début à la fin.
+            </li>
+            <li class="flex items-center">
+              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
+              Assistance et formation personnalisée pour gérer votre site.
             </li>
           </ul>
           <div class="flex justify-center mt-6">
