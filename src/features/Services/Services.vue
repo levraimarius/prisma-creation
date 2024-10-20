@@ -54,7 +54,7 @@
           <ul class="text-gray-600 mt-6 space-y-2 flex-grow">
             <li class="flex items-center">
               <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Idéal pour les particuliers et les petits entreprises.
+              Idéal pour les particuliers et les petites entreprises.
             </li>
             <li class="flex items-center">
               <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
