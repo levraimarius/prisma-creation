@@ -26,7 +26,7 @@
               <h3 class="text-lg font-medium text-gray-900">
                 Vous préférez un contact plus direct ?
               </h3>
-              <p class="mt-1 text-gray-600">contact@prismacreation.fr</p>
+              <a href="mailto:contact@prismacreation.fr" class="text-indigo-600 transition hover:text-indigo-700 flex items-center">contact@prismacreation.fr</a>
             </div>
           </div>
         </div>
@@ -120,7 +120,6 @@
                     'flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
                   ]"
                 >
-                  <span class="sr-only">Agree to policies</span>
                   <span
                     aria-hidden="true"
                     :class="[
@@ -136,7 +135,7 @@
                 <a
                   href="/politique-de-confidentialite"
                   target="_blank"
-                  class="font-semibold text-indigo-600"
+                  class="font-semibold text-indigo-600 hover:text-indigo-700 transition"
                   >politique&nbsp;de&nbsp;confidentialité</a
                 >.
               </p>
@@ -152,7 +151,7 @@
           <div class="mt-10 gsap-contact-button">
             <button
               type="submit"
-              class="block w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600 hover:bg-indigo-500 focus-visible:outline-indigo-600"
+              class="block w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600 hover:bg-indigo-700 focus-visible:outline-indigo-600 transition"
             >
               Parlons-en
             </button>

@@ -28,10 +28,10 @@
           <a
             href="https://cal.com/marius-thiesset/consultation-de-site-web"
             target="_blank"
-            class="text-indigo-600 flex items-center"
+            class="text-indigo-600 flex items-center hover:text-indigo-700 transition prendre-rdv"
           >
             Prendre un rendez-vous
-            <ArrowRightIcon class="w-5 h-5 ml-2" />
+            <ArrowRightIcon class="w-5 h-5 ml-2 arrow-icon" />
           </a>
         </div>
       </div>
@@ -101,5 +101,27 @@ onMounted(() => {
     duration: 1,
     ease: "power3.out",
   });
+
+  // Animation for arrow icon on hover
+  const prendreRdvLink = document.querySelector(".prendre-rdv");
+  const arrowIcon = document.querySelector(".arrow-icon");
+
+  if (prendreRdvLink && arrowIcon) {
+    prendreRdvLink.addEventListener("mouseenter", () => {
+      gsap.to(arrowIcon, {
+        x: 5,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    });
+
+    prendreRdvLink.addEventListener("mouseleave", () => {
+      gsap.to(arrowIcon, {
+        x: 0,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    });
+  }
 });
 </script>
