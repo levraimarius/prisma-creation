@@ -75,10 +75,14 @@
         nous contacter via notre formulaire de contact.
       </p>
     </div>
+
+    <Contact />
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import Contact from "../features/ContactForm/Contact.vue";
+</script>
 
 <style scoped>
 .terms-of-use {
