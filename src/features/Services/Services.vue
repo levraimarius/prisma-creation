@@ -44,6 +44,9 @@
           <h3 class="text-xl font-semibold text-gray-900 mb-4">
             Création de site vitrine
           </h3>
+          <span class="text-lg font-normal">
+            À partir de 
+          </span>
           <p class="text-4xl font-bold text-gray-900 mb-4">
             <span v-if="billingCycle === 'mensuel'">79€</span>
             <span v-else>849€</span>
@@ -93,6 +96,9 @@
           <h3 class="text-xl font-semibold text-gray-900 mb-4">
             Boutique en ligne
           </h3>
+          <span class="text-lg font-normal">
+            À partir de 
+          </span>
           <p class="text-4xl font-bold text-gray-900 mb-4">
             <span v-if="billingCycle === 'mensuel'">129€</span>
             <span v-else>1 349€</span>
@@ -138,6 +144,9 @@
           <h3 class="text-xl font-semibold text-gray-900 mb-4">
             Solutions personnalisées
           </h3>
+          <span class="text-lg font-normal">
+            À partir de 
+          </span>
           <p class="text-4xl font-bold text-gray-900 mb-4">
             <span v-if="billingCycle === 'mensuel'">149€</span>
             <span v-else>1 549€</span>
