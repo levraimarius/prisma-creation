@@ -8,10 +8,13 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [vue()],
+  optimizeDeps: {
+    include: ["vue", "vue-router"],
+  },
   resolve: {
     alias: {
       "~/": path.resolve(__dirname, "./src"),
-    }    
+    },
   },
   css: {
     postcss: "./postcss.config.js",

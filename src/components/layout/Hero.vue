@@ -41,6 +41,7 @@
           src="../../assets/0e055bd6fc948f460fe50aa193ac36e6.jpg"
           alt="Business Team"
           class="rounded-lg shadow-md object-cover w-full h-full"
+          loading="lazy"
         />
       </div>
     </div>

@@ -11,7 +11,7 @@ export default defineComponent({
   name: "Button",
   props: {
     type: {
-      type: String,
+      type: String as () => "primary" | "secondary",
       default: "primary",
     },
   },

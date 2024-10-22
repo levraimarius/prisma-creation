@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white shadow-md rounded-lg p-6">
-    <h3 class="text-xl font-semibold mb-2">{{ title }}</h3>
-    <p>{{ description }}</p>
+    <slot name="header">{{ title }}</slot>
+    <slot>{{ description }}</slot>
   </div>
 </template>
 

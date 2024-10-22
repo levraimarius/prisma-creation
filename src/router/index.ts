@@ -1,23 +1,20 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from '../pages/Home.vue';
-import PrivacyPolicy from "../pages/PrivacyPolicy.vue";
-import TermsOfUse from "../pages/TermsOfUse.vue";
 
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: () => import("../pages/Home.vue"),
   },
   {
     path: "/politique-de-confidentialite",
     name: "PrivacyPolicy",
-    component: PrivacyPolicy,
+    component: () => import("../pages/PrivacyPolicy.vue"),
   },
   {
     path: "/conditions-utilisation",
     name: "TermsOfUse",
-    component: TermsOfUse,
+    component: () => import("../pages/TermsOfUse.vue"),
   },
 ];
 

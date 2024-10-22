@@ -6,6 +6,7 @@
           src="../../assets/logo_prismacreation_footer.svg"
           alt="Logo"
           class="h-24 mb-4"
+          loading="lazy"
         />
         <p class="mb-4">Votre présence en ligne, sans complexité.</p>
       </div>
