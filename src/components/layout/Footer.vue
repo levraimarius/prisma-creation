@@ -3,9 +3,9 @@
     <div class="container mx-auto flex flex-wrap justify-between gap-8">
       <div class="flex-1 min-w-[200px]">
         <img
-          src="../../assets/logo_prismacreation_footer.svg"
-          alt="Logo"
           class="h-24 mb-4"
+          src="../../assets/logo_prismacreation_footer.svg"
+          alt="Logo Prisma Création"
           loading="lazy"
         />
         <p class="mb-4">Votre présence en ligne, sans complexité.</p>

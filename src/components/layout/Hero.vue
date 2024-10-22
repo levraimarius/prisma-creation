@@ -38,9 +38,9 @@
 
       <div class="md:w-1/2 mt-10 md:mt-0 gsap-image">
         <img
-          src="../../assets/0e055bd6fc948f460fe50aa193ac36e6.jpg"
-          alt="Business Team"
           class="rounded-lg shadow-md object-cover w-full h-full"
+          src="../../assets/0e055bd6fc948f460fe50aa193ac36e6.jpg"
+          alt="Prisma Création image de présentation"
           loading="lazy"
         />
       </div>
