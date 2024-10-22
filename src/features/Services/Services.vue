@@ -1,5 +1,5 @@
 <template>
-  <section id="services" class="bg-white px-6 py-24 sm:py-32 lg:px-8">
+  <section id="services" class="px-6 py-24 sm:py-32 lg:px-8">
     <div class="container mx-auto text-center">
       <h2 class="text-4xl font-bold text-gray-900 mb-4" ref="servicesTitle">
         Nos services
@@ -18,7 +18,7 @@
             billingCycle === 'mensuel'
               ? 'bg-indigo-600 text-white hover:bg-indigo-700'
               : 'text-indigo-600 hover:bg-slate-50',
-            'px-6 py-2 rounded-full border border-indigo-600 transition w-max md:px-10 md:py-3 lg:px-12 lg:py-4',
+            'px-6 py-2 rounded-md border border-indigo-600 transition w-max md:px-10 md:py-3 lg:px-12 lg:py-4',
           ]"
         >
           Mensuel
@@ -29,7 +29,7 @@
             billingCycle === 'annuel'
               ? 'bg-indigo-600 text-white hover:bg-indigo-700'
               : 'text-indigo-600 hover:bg-slate-50',
-            'px-6 py-2 rounded-full border border-indigo-600 transition w-max md:px-10 md:py-3 lg:px-12 lg:py-4',
+            'px-6 py-2 rounded-md border border-indigo-600 transition w-max md:px-10 md:py-3 lg:px-12 lg:py-4',
           ]"
         >
           Annuel

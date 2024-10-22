@@ -1,7 +1,9 @@
 <template>
   <div id="contact" class="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
     <div class="mx-auto max-w-5xl lg:grid lg:grid-cols-12 lg:gap-x-8">
-      <div class="lg:col-span-4 lg:mb-0 lg:text-left text-center">
+      <div
+        class="lg:col-span-4 lg:mb-0 lg:text-left text-center gsap-contact-title"
+      >
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           Contactez-nous
         </h2>
@@ -26,7 +28,11 @@
               <h3 class="text-lg font-medium text-gray-900">
                 Vous préférez un contact plus direct ?
               </h3>
-              <a href="mailto:contact@prismacreation.fr" class="text-indigo-600 transition hover:text-indigo-700 flex items-center">contact@prismacreation.fr</a>
+              <a
+                href="mailto:contact@prismacreation.fr"
+                class="text-indigo-600 transition hover:text-indigo-700 flex items-center"
+                >contact@prismacreation.fr</a
+              >
             </div>
           </div>
         </div>

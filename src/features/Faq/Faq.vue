@@ -16,7 +16,7 @@
         >
           <button
             @click="toggleAnswer(index)"
-            class="flex items-center justify-between w-full text-left text-lg text-gray-900 py-2 focus:outline-none"
+            class="flex items-center justify-between w-full text-left text-lg text-gray-900 py-2 focus:ring-2 focus:ring-inset focus:ring-indigo-600 transition"
           >
             {{ faq.question }}
             <span

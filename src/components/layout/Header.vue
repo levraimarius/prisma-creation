@@ -16,7 +16,7 @@
             />
           </a>
         </div>
-        <div class="hidden sm:ml-6 sm:block">
+        <div class="hidden sm:ml-6 md:block">
           <div class="flex space-x-4">
             <a
               v-for="item in navigation"
@@ -35,7 +35,7 @@
           </div>
         </div>
 
-        <div class="absolute inset-y-0 right-0 flex items-center sm:hidden">
+        <div class="absolute inset-y-0 right-0 flex items-center md:hidden">
           <DisclosureButton
             class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-500 hover:text-indigo-600"
           >
@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <DisclosurePanel class="sm:hidden">
+    <DisclosurePanel class="md:hidden">
       <div class="space-y-1 px-4 pb-3 pt-2">
         <DisclosureButton
           v-for="item in navigation"
@@ -77,7 +77,6 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 const navigation = [
   { name: "Accueil", href: "#accueil", current: true },
   { name: "Nos services", href: "#services", current: false },
-  // { name: "Avis des clients", href: "#avis", current: false },
   { name: "Questions", href: "#faq", current: false },
   { name: "Contact", href: "#contact", current: false },
 ];
