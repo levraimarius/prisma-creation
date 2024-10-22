@@ -53,7 +53,7 @@
         <img
           class="object-cover w-full h-full"
           src="../../assets/logo_prismacreation.svg"
-          alt="Prisma Création image de présentation"
+          alt="Logo de Prisma Création"
           loading="lazy"
         />
       </div>
