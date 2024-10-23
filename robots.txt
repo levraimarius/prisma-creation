@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Allow: /politique-de-confidentialite
+Allow: /conditions-utilisation
+
+Sitemap: https://prismacreation.fr/sitemap.xml

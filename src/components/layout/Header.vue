@@ -21,8 +21,7 @@
             <a
               v-for="item in navigation"
               :key="item.name"
-              href="javascript:void(0);"
-              @click.prevent="smoothScroll(item.href)"
+              :href="item.href"
               :class="[
                 activeSection === item.href
                   ? 'text-indigo-600'
@@ -53,8 +52,7 @@
         <DisclosureButton
           v-for="item in navigation"
           :key="item.name"
-          href="javascript:void(0);"
-          @click.prevent="smoothScroll(item.href)"
+          :href="item.href"
           :class="[
             activeSection === item.href
               ? 'text-indigo-600'
@@ -75,23 +73,13 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 
 const navigation = [
-  { name: "Accueil", href: "#accueil", current: true },
-  { name: "Nos services", href: "#services", current: false },
-  { name: "Questions", href: "#faq", current: false },
-  { name: "Contact", href: "#contact", current: false },
+  { name: "Accueil", href: "/#accueil", current: true },
+  { name: "Nos services", href: "/#services", current: false },
+  { name: "Questions", href: "/#faq", current: false },
+  { name: "Contact", href: "#contact", current: false }, // Use hash for the contact section only
 ];
 
 const activeSection = ref("#accueil");
-
-const smoothScroll = (hash) => {
-  const target = document.querySelector(hash);
-  if (target) {
-    target.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }
-};
 
 const detectSectionInView = () => {
   const sections = navigation.map((item) => document.querySelector(item.href));
