@@ -12,7 +12,6 @@
               class="h-16 w-auto"
               src="../../assets/logo_prismacreation.svg"
               alt="Logo Prisma Création"
-              loading="lazy"
             />
           </a>
         </div>

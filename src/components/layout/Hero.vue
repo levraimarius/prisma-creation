@@ -5,7 +5,6 @@
         class="w-full h-full object-cover pointer-events-none select-none"
         src="../../assets/fond.svg"
         alt="Fond"
-        loading="lazy"
         draggable="false"
       />
     </div>
@@ -54,7 +53,6 @@
           class="object-cover w-full h-full"
           src="../../assets/logo_prismacreation.svg"
           alt="Logo de Prisma Création"
-          loading="lazy"
         />
       </div>
 

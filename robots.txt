@@ -1,6 +1,9 @@
+# *
 User-agent: *
 Allow: /
-Allow: /politique-de-confidentialite
-Allow: /conditions-utilisation
 
+# Host
+Host: https://prismacreation.fr
+
+# Sitemaps
 Sitemap: https://prismacreation.fr/sitemap.xml
