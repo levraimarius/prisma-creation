@@ -162,6 +162,7 @@
             <button
               type="submit"
               class="block w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600 hover:bg-indigo-700 focus-visible:outline-indigo-600 transition"
+              aria-label="Parlons-en"
             >
               Parlons-en
             </button>
@@ -210,12 +211,6 @@ const serviceID = "service_dlp2fdl";
 const templateID = "template_xcmfgyi";
 
 onMounted(() => {
-  const recaptchaScript = document.createElement("script");
-  recaptchaScript.src = "https://www.google.com/recaptcha/api.js";
-  recaptchaScript.async = true;
-  recaptchaScript.defer = true;
-  document.body.appendChild(recaptchaScript);
-
   gsap.from(".gsap-contact-title", {
     scrollTrigger: {
       trigger: "#contact",
@@ -276,13 +271,21 @@ const sendEmail = () => {
     return;
   }
 
-  const response = grecaptcha.getResponse();
-  if (!response) {
+  if (typeof grecaptcha !== "undefined") {
+    const response = grecaptcha.getResponse();
+    if (!response) {
+      showNotification.value = true;
+      notificationType.value = "error";
+      notificationTitle.value = "Erreur";
+      notificationMessage.value =
+        "Veuillez vérifier le reCAPTCHA avant d'envoyer le formulaire.";
+      return;
+    }
+  } else {
     showNotification.value = true;
     notificationType.value = "error";
     notificationTitle.value = "Erreur";
-    notificationMessage.value =
-      "Veuillez vérifier le reCAPTCHA avant d'envoyer le formulaire.";
+    notificationMessage.value = "Le reCAPTCHA n'a pas encore été chargé.";
     return;
   }
 

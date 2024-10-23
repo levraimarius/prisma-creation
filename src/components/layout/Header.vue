@@ -72,10 +72,10 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 
 const navigation = [
-  { name: "Accueil", href: "/#accueil", current: true },
-  { name: "Nos services", href: "/#services", current: false },
-  { name: "Questions", href: "/#faq", current: false },
-  { name: "Contact", href: "#contact", current: false }, // Use hash for the contact section only
+  { name: "Accueil", href: "#accueil", current: true },
+  { name: "Nos services", href: "#services", current: false },
+  { name: "Questions", href: "#faq", current: false },
+  { name: "Contact", href: "#contact", current: false },
 ];
 
 const activeSection = ref("#accueil");

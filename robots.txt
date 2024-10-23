@@ -1,9 +1,5 @@
-# *
 User-agent: *
-Allow: /
-
-# Host
-Host: https://prismacreation.fr
+Disallow:
 
 # Sitemaps
 Sitemap: https://prismacreation.fr/sitemap.xml

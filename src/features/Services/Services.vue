@@ -20,6 +20,7 @@
               : 'text-indigo-600 hover:bg-slate-50',
             'px-6 py-2 rounded-md border border-indigo-600 transition w-max md:px-10 md:py-3 lg:px-12 lg:py-4',
           ]"
+          aria-label="Mensuel"
         >
           Mensuel
         </button>
@@ -31,6 +32,7 @@
               : 'text-indigo-600 hover:bg-slate-50',
             'px-6 py-2 rounded-md border border-indigo-600 transition w-max md:px-10 md:py-3 lg:px-12 lg:py-4',
           ]"
+          aria-label="Annuel"
         >
           Annuel
         </button>
@@ -44,9 +46,7 @@
           <h3 class="text-xl font-semibold text-gray-900 mb-4">
             Création de site vitrine
           </h3>
-          <span class="text-lg font-normal">
-            À partir de 
-          </span>
+          <span class="text-lg font-normal"> À partir de </span>
           <p class="text-4xl font-bold text-gray-900 mb-4">
             <span v-if="billingCycle === 'mensuel'">79€</span>
             <span v-else>849€</span>
@@ -78,6 +78,7 @@
               href="https://cal.com/marius-thiesset/consultation-de-site-web"
               target="_blank"
               class="bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md hover:bg-indigo-700 transition mt-auto"
+              aria-label="Choisir ce plan"
             >
               Choisir ce plan
             </a>
@@ -96,9 +97,7 @@
           <h3 class="text-xl font-semibold text-gray-900 mb-4">
             Boutique en ligne
           </h3>
-          <span class="text-lg font-normal">
-            À partir de 
-          </span>
+          <span class="text-lg font-normal"> À partir de </span>
           <p class="text-4xl font-bold text-gray-900 mb-4">
             <span v-if="billingCycle === 'mensuel'">129€</span>
             <span v-else>1 349€</span>
@@ -131,6 +130,7 @@
               href="https://cal.com/marius-thiesset/consultation-de-site-web"
               target="_blank"
               class="bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md hover:bg-indigo-700 transition mt-auto"
+              aria-label="Choisir ce plan"
             >
               Choisir ce plan
             </a>
@@ -144,9 +144,7 @@
           <h3 class="text-xl font-semibold text-gray-900 mb-4">
             Solutions personnalisées
           </h3>
-          <span class="text-lg font-normal">
-            À partir de 
-          </span>
+          <span class="text-lg font-normal"> À partir de </span>
           <p class="text-4xl font-bold text-gray-900 mb-4">
             <span v-if="billingCycle === 'mensuel'">149€</span>
             <span v-else>1 549€</span>
@@ -179,6 +177,7 @@
               href="https://cal.com/marius-thiesset/consultation-de-site-web"
               target="_blank"
               class="bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md hover:bg-indigo-700 transition mt-auto"
+              aria-label="Choisir ce plan"
             >
               Choisir ce plan
             </a>

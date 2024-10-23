@@ -28,6 +28,7 @@
           <button
             @click="close"
             class="rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            aria-label="Fermer"
           >
             <span class="sr-only">Fermer</span>
             <HeroXMarkIcon class="h-5 w-5" />

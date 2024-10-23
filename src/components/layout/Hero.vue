@@ -34,6 +34,7 @@
           <a
             href="#services"
             class="bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition w-max"
+            aria-label="Découvrir nos services"
           >
             Découvrir nos services
           </a>
@@ -41,6 +42,7 @@
             href="https://cal.com/marius-thiesset/consultation-de-site-web"
             target="_blank"
             class="text-indigo-600 flex items-center hover:text-indigo-700 transition prendre-rdv"
+            aria-label="Prendre un rendez-vous"
           >
             Prendre un rendez-vous
             <ArrowRightIcon class="w-5 h-5 ml-2 arrow-icon" />
