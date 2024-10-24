@@ -39,7 +39,7 @@
             Découvrir nos services
           </a>
           <a
-            href="https://cal.com/marius-thiesset/consultation-de-site-web"
+            href="https://cal.com/prisma-creation/consultation-de-site-web"
             target="_blank"
             class="text-indigo-600 flex items-center hover:text-indigo-700 transition prendre-rdv"
             aria-label="Prendre un rendez-vous"

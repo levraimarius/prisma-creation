@@ -35,7 +35,7 @@
           </li>
           <li>
             <a
-              href="https://cal.com/marius-thiesset/consultation-de-site-web"
+              href="https://cal.com/prisma-creation/consultation-de-site-web"
               target="_blank"
               class="hover:text-white transition"
               >Prendre un rendez-vous</a

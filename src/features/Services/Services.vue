@@ -75,7 +75,7 @@
           </ul>
           <div class="flex justify-center mt-6">
             <a
-              href="https://cal.com/marius-thiesset/consultation-de-site-web"
+              href="https://cal.com/prisma-creation/consultation-de-site-web"
               target="_blank"
               class="bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md hover:bg-indigo-700 transition mt-auto"
               aria-label="Choisir ce plan"
@@ -127,7 +127,7 @@
           </ul>
           <div class="flex justify-center mt-6">
             <a
-              href="https://cal.com/marius-thiesset/consultation-de-site-web"
+              href="https://cal.com/prisma-creation/consultation-de-site-web"
               target="_blank"
               class="bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md hover:bg-indigo-700 transition mt-auto"
               aria-label="Choisir ce plan"
@@ -174,7 +174,7 @@
           </ul>
           <div class="flex justify-center mt-6">
             <a
-              href="https://cal.com/marius-thiesset/consultation-de-site-web"
+              href="https://cal.com/prisma-creation/consultation-de-site-web"
               target="_blank"
               class="bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md hover:bg-indigo-700 transition mt-auto"
               aria-label="Choisir ce plan"
