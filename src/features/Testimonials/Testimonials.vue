@@ -27,7 +27,7 @@
               />
             </div>
             <p class="ml-2 text-lg font-semibold">
-              {{ averageRating.toFixed(1) }} sur 5
+              {{ averageRating.toFixed(1) }}/5.0
             </p>
           </div>
           <div class="flex items-center justify-center gap-4 lg:justify-start">
@@ -115,6 +115,13 @@ const reviews = ref([
     rating: 5,
     text: "Je recommande vivement Marius, avec qui j'ai eu le plaisir de collaborer. C'est un développeur web consciencieux. Il fait preuve d'une excellente capacité à comprendre rapidement les besoins du projet et à proposer des solutions techniques solides et optimisées. Sa rigueur et son sens du détail garantissent toujours un code...",
     profileImage: "https://dam.malt.com/anonymous?w=80&force_format=png",
+  },
+  {
+    id: 3,
+    name: "Prince Hubert de Polignac",
+    rating: 5,
+    text: "Nous avons confié la création de notre site web à Prisma Création, et le résultat a dépassé nos attentes. Leur équipe a su cerner notre vision et nous a livré un site moderne, intuitif et performant, tout en respectant les délais. Une collaboration fluide et professionnelle que nous recommandons vivement !",
+    profileImage: "https://polignac.fr/favicon-96x96.png",
   },
 ]);
 
