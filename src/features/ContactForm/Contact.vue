@@ -1,5 +1,5 @@
 <template>
-  <div id="contact" class="px-6 py-24 bg-white isolate sm:py-32 lg:px-8">
+  <div id="contact" class="px-6 py-24 bg-gray-50 isolate sm:py-32 lg:px-8">
     <div class="max-w-5xl mx-auto lg:grid lg:grid-cols-12 lg:gap-x-8">
       <div
         class="text-center lg:col-span-4 lg:mb-0 lg:text-left gsap-contact-title"

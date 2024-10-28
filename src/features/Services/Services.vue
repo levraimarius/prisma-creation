@@ -65,13 +65,20 @@
           class="relative p-6 m-6 overflow-hidden transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-2xl lg:max-w-3xl"
         >
           <div class="sm:items-start">
-            <div class="flex items-center mb-4">
-              <ArchiveBoxIcon
-                class="flex-shrink-0 w-6 h-6 mr-2 text-indigo-600"
-              />
-              <h3 class="text-2xl font-bold text-gray-900">
-                {{ currentPack.name }}
-              </h3>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center">
+                <ArchiveBoxIcon
+                  class="flex-shrink-0 w-6 h-6 mr-2 text-indigo-600"
+                />
+                <h3 class="text-2xl font-bold text-gray-900">
+                  {{ currentPack.name }}
+                </h3>
+              </div>
+              <button @click="closeModal" class="text-sm transition rounded-md">
+                <XMarkIcon
+                  class="flex-shrink-0 w-5 h-5 text-gray-500 transition hover:text-red-600"
+                />
+              </button>
             </div>
           </div>
           <hr class="mb-6" />
@@ -94,17 +101,11 @@
             <a
               href="https://cal.com/prisma-creation/consultation-de-site-web"
               target="_blank"
-              class="px-3 py-1 mt-auto text-sm text-white transition bg-indigo-600 rounded-md md:px-5 md:py-2 hover:bg-indigo-700"
+              class="px-3 py-1 mt-auto text-white transition bg-indigo-600 rounded-md md:px-5 md:py-2 hover:bg-indigo-700"
               aria-label="Prenez rendez-vous"
             >
               Prenez rendez-vous
             </a>
-            <button
-              @click="closeModal"
-              class="px-3 py-1 mt-auto text-sm text-white transition bg-red-600 rounded-md md:px-5 md:py-2 hover:bg-red-700"
-            >
-              Fermer
-            </button>
           </div>
         </div>
       </div>
@@ -118,6 +119,7 @@ import {
   CheckIcon,
   ArchiveBoxIcon,
   ArrowRightIcon,
+  XMarkIcon,
 } from "@heroicons/vue/24/solid";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";

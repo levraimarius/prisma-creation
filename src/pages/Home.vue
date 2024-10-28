@@ -3,6 +3,7 @@
     <Hero />
     <Services />
     <Faq />
+    <Testimonials />
     <Contact />
   </div>
 </template>
@@ -18,6 +19,9 @@ export default {
       () => import("../features/Services/Services.vue")
     ),
     Faq: defineAsyncComponent(() => import("../features/Faq/Faq.vue")),
+    Testimonials: defineAsyncComponent(
+      () => import("../features/Testimonials/Testimonials.vue")
+    ),
     Contact: defineAsyncComponent(
       () => import("../features/ContactForm/Contact.vue")
     ),

@@ -1,161 +1,85 @@
 <template>
   <section id="avis" class="px-6 py-24 bg-white sm:py-32 lg:px-8">
-    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-        <div class="col-span-1">
-          <h2 class="mb-4 text-2xl font-bold">Avis clients</h2>
+    <div class="container mx-auto text-center">
+      <h2 class="mb-4 text-4xl font-bold text-gray-900" ref="servicesTitle">
+        Avis de nos clients
+      </h2>
+      <p class="max-w-2xl mx-auto mb-12 text-gray-600" ref="servicesSubtitle">
+        Laissez-vous convaincre par l'expérience de nos clients.
+      </p>
+
+      <div
+        class="flex flex-wrap items-center justify-center text-left gap-y-8 lg:gap-y-0 md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8"
+      >
+        <div class="w-full lg:w-2/5">
+          <h2 class="mb-4 text-2xl font-bold">Ils nous ont fait confiance.</h2>
           <div class="flex items-center mb-4">
             <div class="flex text-yellow-500">
-              <StarIconSolid class="w-5 h-5 fill-current" />
-              <StarIconSolid class="w-5 h-5 fill-current" />
-              <StarIconSolid class="w-5 h-5 fill-current" />
-              <StarIconSolid class="w-5 h-5 fill-current" />
-              <StarIconOutline class="w-5 h-5 stroke-current" />
+              <StarIconSolid
+                v-for="star in Math.floor(averageRating)"
+                :key="'filled-' + star"
+                class="w-5 h-5 fill-current"
+              />
+              <StarIconOutline
+                v-for="star in 5 - Math.floor(averageRating)"
+                :key="'empty-' + star"
+                class="w-5 h-5 stroke-current"
+              />
             </div>
-            <p class="ml-2 text-lg font-semibold">4.2 sur 5</p>
-          </div>
-          <p class="mb-6 text-gray-500">Basé sur 1624 avis</p>
-          <div class="space-y-2">
-            <div class="flex items-center">
-              <span class="flex items-center text-sm font-medium text-gray-600">
-                5
-                <StarIconSolid
-                  class="w-4 h-4 ml-1 text-yellow-500 fill-current"
-                />
-              </span>
-              <div class="w-full h-2 mx-4 bg-gray-200 rounded-full">
-                <div
-                  class="h-2 bg-yellow-400 rounded-full"
-                  style="width: 63%"
-                ></div>
-              </div>
-              <span class="text-sm font-medium text-gray-600">63%</span>
-            </div>
-            <div class="flex items-center">
-              <span class="flex items-center text-sm font-medium text-gray-600">
-                4
-                <StarIconSolid
-                  class="w-4 h-4 ml-1 text-yellow-500 fill-current"
-                />
-              </span>
-              <div class="w-full h-2 mx-4 bg-gray-200 rounded-full">
-                <div
-                  class="h-2 bg-yellow-400 rounded-full"
-                  style="width: 10%"
-                ></div>
-              </div>
-              <span class="text-sm font-medium text-gray-600">10%</span>
-            </div>
-            <div class="flex items-center">
-              <span class="flex items-center text-sm font-medium text-gray-600">
-                3
-                <StarIconSolid
-                  class="w-4 h-4 ml-1 text-yellow-500 fill-current"
-                />
-              </span>
-              <div class="w-full h-2 mx-4 bg-gray-200 rounded-full">
-                <div
-                  class="h-2 bg-yellow-400 rounded-full"
-                  style="width: 6%"
-                ></div>
-              </div>
-              <span class="text-sm font-medium text-gray-600">6%</span>
-            </div>
-            <div class="flex items-center">
-              <span class="flex items-center text-sm font-medium text-gray-600">
-                2
-                <StarIconSolid
-                  class="w-4 h-4 ml-1 text-yellow-500 fill-current"
-                />
-              </span>
-              <div class="w-full h-2 mx-4 bg-gray-200 rounded-full">
-                <div
-                  class="h-2 bg-yellow-400 rounded-full"
-                  style="width: 12%"
-                ></div>
-              </div>
-              <span class="text-sm font-medium text-gray-600">12%</span>
-            </div>
-            <div class="flex items-center">
-              <span class="flex items-center text-sm font-medium text-gray-600">
-                1
-                <StarIconSolid
-                  class="w-4 h-4 ml-1 text-yellow-500 fill-current"
-                />
-              </span>
-              <div class="w-full h-2 mx-4 bg-gray-200 rounded-full">
-                <div
-                  class="h-2 bg-yellow-400 rounded-full"
-                  style="width: 9%"
-                ></div>
-              </div>
-              <span class="text-sm font-medium text-gray-600">9%</span>
-            </div>
-          </div>
-          <div class="mt-6">
-            <p class="mb-2 font-medium">Partagez votre avis</p>
-            <p class="mb-4 text-gray-500">
-              Si vous avez utilisé ce produit, partagez vos impressions avec les
-              autres clients
+            <p class="ml-2 text-lg font-semibold">
+              {{ averageRating.toFixed(1) }} sur 5
             </p>
+          </div>
+          <div class="flex items-center justify-center gap-4 lg:justify-start">
             <button
-              class="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-100"
+              class="flex items-center justify-center w-12 h-12 transition-all duration-300 border border-indigo-600 border-solid rounded-lg swiper-button-prev hover:bg-indigo-600 group"
             >
-              Rédiger un avis
+              <ArrowLeftIcon
+                class="w-6 h-6 text-indigo-600 group-hover:text-white"
+              />
+            </button>
+            <button
+              class="flex items-center justify-center w-12 h-12 transition-all duration-300 border border-indigo-600 border-solid rounded-lg swiper-button-next hover:bg-indigo-600 group"
+            >
+              <ArrowRightIcon
+                class="w-6 h-6 text-indigo-600 group-hover:text-white"
+              />
             </button>
           </div>
         </div>
-
-        <div class="col-span-2 space-y-8">
-          <div class="p-6 bg-white rounded-lg shadow-md">
-            <div class="flex items-center mb-4">
-              <img
-                src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                alt="Profile"
-                class="w-12 h-12 mr-4 rounded-full"
-              />
-              <div>
-                <h3 class="text-lg font-bold">Emily Selman</h3>
-                <div class="flex text-yellow-500">
-                  <StarIconSolid class="w-5 h-5 fill-current" />
-                  <StarIconSolid class="w-5 h-5 fill-current" />
-                  <StarIconSolid class="w-5 h-5 fill-current" />
-                  <StarIconSolid class="w-5 h-5 fill-current" />
-                  <StarIconSolid class="w-5 h-5 fill-current" />
+        <div class="w-full lg:w-3/5">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div
+                v-for="review in reviews"
+                :key="review.id"
+                class="p-6 transition-all duration-500 bg-white border border-gray-300 border-solid swiper-slide rounded-2xl hover:border-indigo-600"
+              >
+                <div class="flex items-center gap-3 mb-5">
+                  <img
+                    :src="review.profileImage"
+                    alt="avatar"
+                    class="w-8 h-8 rounded-full"
+                  />
+                  <div>
+                    <h5 class="font-medium text-gray-900">{{ review.name }}</h5>
+                  </div>
                 </div>
+                <div class="flex items-center my-3 text-yellow-500">
+                  <StarIconSolid
+                    v-for="star in review.rating"
+                    :key="'star-' + review.id + '-' + star"
+                    class="w-5 h-5 fill-current"
+                  />
+                  <StarIconOutline
+                    v-for="star in 5 - review.rating"
+                    :key="'empty-' + review.id + '-' + star"
+                    class="w-5 h-5 stroke-current"
+                  />
+                </div>
+                <p class="text-gray-600">{{ review.text }}</p>
               </div>
             </div>
-            <p class="text-gray-600">
-              C'est le sac de mes rêves. Je l'ai emporté lors de mes dernières
-              vacances et j'ai pu y ranger une quantité absurde de collations
-              pour les nombreux vols longs et affamants.
-            </p>
-          </div>
-
-          <div class="p-6 bg-white rounded-lg shadow-md">
-            <div class="flex items-center mb-4">
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                alt="Profile"
-                class="w-12 h-12 mr-4 rounded-full"
-              />
-              <div>
-                <h3 class="text-lg font-bold">Hector Gibbons</h3>
-                <div class="flex text-yellow-500">
-                  <StarIconSolid class="w-5 h-5 fill-current" />
-                  <StarIconSolid class="w-5 h-5 fill-current" />
-                  <StarIconSolid class="w-5 h-5 fill-current" />
-                  <StarIconSolid class="w-5 h-5 fill-current" />
-                  <StarIconOutline class="w-5 h-5 stroke-current" />
-                </div>
-              </div>
-            </div>
-            <p class="text-gray-600">
-              Avant d'avoir le Ruck Snack, j'ai toujours lutté contre les
-              collations pulvérisées, les miettes infinies et d'autres
-              catastrophes déchirantes de collations. Maintenant, je peux ranger
-              mes collations en toute confiance et avec style !
-            </p>
           </div>
         </div>
       </div>
@@ -164,6 +88,62 @@
 </template>
 
 <script setup>
-import { StarIcon as StarIconSolid } from "@heroicons/vue/24/solid";
+import { ref, computed, onMounted } from "vue";
+import Swiper from "swiper";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  StarIcon as StarIconSolid,
+} from "@heroicons/vue/24/solid";
 import { StarIcon as StarIconOutline } from "@heroicons/vue/24/outline";
+
+const reviews = ref([
+  {
+    id: 1,
+    name: "juliendulaurans",
+    rating: 5,
+    text: "Prestataire Haute Gamme avec un rapport qualité prix d'exception. Un rendu rapide totalement conforme à mes exigeances et besoins avec des révisions acceptées jusqu'à la livraison finale du produit. Je recommande vivement ce prestataire. J'avais demandé la réalisation d'une page internet dans 5 langues pour un nouveau produit.",
+    profileImage:
+      "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/63c7478bfca7402d8a27cfd21b5b49ba-1693472992800/59549a35-b4b4-4596-8ca7-de1f01239405.jpg",
+  },
+  {
+    id: 2,
+    name: "Elisa Ridel",
+    rating: 5,
+    text: "Je recommande vivement Marius, avec qui j'ai eu le plaisir de collaborer. C'est un développeur web consciencieux. Il fait preuve d'une excellente capacité à comprendre rapidement les besoins du projet et à proposer des solutions techniques solides et optimisées. Sa rigueur et son sens du détail garantissent toujours un code propre et efficace. En plus de ses compétences techniques, Marius est très réactif face aux problèmes et sait gérer les priorités avec professionnalisme. C'est également un excellent communicant, et travailler avec lui est un vrai plaisir.",
+    profileImage: "https://dam.malt.com/anonymous?w=80&force_format=png",
+  },
+]);
+
+const averageRating = computed(() => {
+  const total = reviews.value.reduce((sum, review) => sum + review.rating, 0);
+  const average = total / reviews.value.length;
+  return Number.isInteger(average) ? average : average.toFixed(1);
+});
+
+onMounted(() => {
+  new Swiper(".mySwiper", {
+    modules: [Navigation],
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    loop: true,
+    slidesPerView: 2,
+    spaceBetween: 28,
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 28,
+      },
+    },
+  });
+});
 </script>

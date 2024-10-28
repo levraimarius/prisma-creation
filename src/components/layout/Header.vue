@@ -84,6 +84,7 @@ const navigation = [
   { name: "Accueil", href: "#accueil", current: true },
   { name: "Nos services", href: "#services", current: false },
   { name: "Questions", href: "#faq", current: false },
+  { name: "Avis", href: "#avis", current: false },
   { name: "Contact", href: "#contact", current: false },
 ];
 
