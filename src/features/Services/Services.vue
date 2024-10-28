@@ -1,186 +1,110 @@
 <template>
   <section id="services" class="px-6 py-24 sm:py-32 lg:px-8">
     <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-bold text-gray-900 mb-4" ref="servicesTitle">
+      <h2 class="mb-4 text-4xl font-bold text-gray-900" ref="servicesTitle">
         Nos services
       </h2>
-      <p class="text-gray-600 mb-12 max-w-2xl mx-auto" ref="servicesSubtitle">
+      <p class="max-w-2xl mx-auto mb-12 text-gray-600" ref="servicesSubtitle">
         Des solutions sur mesure pour votre présence en ligne.
       </p>
 
       <div
-        class="flex flex-col items-center space-y-4 md:flex-row md:justify-center md:space-y-0 md:space-x-8 mb-8 buttons"
-        ref="billingTabs"
-      >
-        <button
-          @click="billingCycle = 'mensuel'"
-          :class="[
-            billingCycle === 'mensuel'
-              ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-              : 'text-indigo-600 hover:bg-slate-50',
-            'px-6 py-2 rounded-md border border-indigo-600 transition w-max md:px-10 md:py-3 lg:px-12 lg:py-4',
-          ]"
-          aria-label="Mensuel"
-        >
-          Mensuel
-        </button>
-        <button
-          @click="billingCycle = 'annuel'"
-          :class="[
-            billingCycle === 'annuel'
-              ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-              : 'text-indigo-600 hover:bg-slate-50',
-            'px-6 py-2 rounded-md border border-indigo-600 transition w-max md:px-10 md:py-3 lg:px-12 lg:py-4',
-          ]"
-          aria-label="Annuel"
-        >
-          Annuel
-        </button>
-      </div>
-
-      <div
-        class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left"
+        :class="`grid grid-cols-1 ${
+          packs.length >= 3 ? 'md:grid-cols-3' : ''
+        } ${packs.length >= 4 ? 'lg:grid-cols-4' : ''} gap-8 text-left`"
         ref="pricingPlans"
       >
-        <div class="bg-white shadow-lg rounded-lg p-8 flex flex-col h-full">
-          <h3 class="text-xl font-semibold text-gray-900 mb-4">
-            Création de site vitrine
-          </h3>
-          <span class="text-lg font-normal"> À partir de </span>
-          <p class="text-4xl font-bold text-gray-900 mb-4">
-            <span v-if="billingCycle === 'mensuel'">79€</span>
-            <span v-else>849€</span>
-            <span class="text-lg font-normal">
-              {{ billingCycle === "mensuel" ? "/mois" : "/an" }}
-            </span>
-          </p>
-          <ul class="text-gray-600 mt-6 space-y-2 flex-grow">
-            <li class="flex items-center">
-              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Idéal pour les particuliers et les petites entreprises.
-            </li>
-            <li class="flex items-center">
-              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Présentez vos services et produits en toute simplicité.
-            </li>
-            <li class="flex items-center">
-              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Design adaptable à tous les supports (ordinateurs, tablettes,
-              smartphones).
-            </li>
-            <li class="flex items-center">
-              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Documentation et accompagnement inclus.
-            </li>
-          </ul>
-          <div class="flex justify-center mt-6">
-            <a
-              href="https://cal.com/prisma-creation/consultation-de-site-web"
-              target="_blank"
-              class="bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md hover:bg-indigo-700 transition mt-auto"
-              aria-label="Choisir ce plan"
-            >
-              Choisir ce plan
-            </a>
-          </div>
-        </div>
-
         <div
-          class="relative bg-white shadow-lg rounded-lg p-8 flex flex-col h-full border-2 border-indigo-500"
-          ref="popularPlan"
+          v-for="pack in packs"
+          :key="pack.id"
+          :class="`bg-white shadow-lg rounded-lg p-8 flex flex-col h-full ${
+            pack.popular ? 'border-2 border-indigo-500' : ''
+          }`"
         >
           <div
-            class="absolute -top-3 right-3 bg-indigo-600 text-white text-xs font-bold uppercase px-3 py-1 rounded-md"
+            v-if="pack.popular"
+            class="absolute px-3 py-1 text-xs font-bold text-white uppercase bg-indigo-600 rounded-md -top-3 right-3"
           >
             Populaire
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-4">
-            Boutique en ligne
+          <h3 class="mb-4 text-xl font-semibold text-gray-900">
+            {{ pack.name }}
           </h3>
-          <span class="text-lg font-normal"> À partir de </span>
-          <p class="text-4xl font-bold text-gray-900 mb-4">
-            <span v-if="billingCycle === 'mensuel'">129€</span>
-            <span v-else>1 349€</span>
-            <span class="text-lg font-normal">
-              {{ billingCycle === "mensuel" ? "/mois" : "/an" }}
-            </span>
+          <span class="text-lg font-normal">À partir de</span>
+          <p class="mb-4 text-4xl font-bold text-gray-900">
+            <span>{{ pack.price }}€</span>
           </p>
-          <ul class="text-gray-600 mt-6 space-y-2 flex-grow">
-            <li class="flex items-center">
-              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Développez votre activité avec une boutique e-commerce clé en
-              main.
-            </li>
-            <li class="flex items-center">
-              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Gestion des paiements sécurisés et de vos produits.
-            </li>
-            <li class="flex items-center">
-              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Accompagnement marketing pour maximiser vos ventes.
-            </li>
-            <li class="flex items-center">
-              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Documentation complète pour gérer votre boutique de manière
-              autonome.
+          <p class="text-gray-600 text-1xl">{{ pack.description }}</p>
+          <ul class="flex-grow mt-6 space-y-2 text-gray-600">
+            <li
+              v-for="feature in pack.features"
+              :key="feature"
+              class="flex items-center"
+            >
+              <CheckIcon class="flex-shrink-0 w-5 h-5 mr-2 text-indigo-600" />
+              {{ feature }}
             </li>
           </ul>
           <div class="flex justify-center mt-6">
-            <a
-              href="https://cal.com/prisma-creation/consultation-de-site-web"
-              target="_blank"
-              class="bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md hover:bg-indigo-700 transition mt-auto"
+            <button
+              @click="openModal(pack.id)"
+              class="px-4 py-2 mt-auto text-white transition bg-indigo-600 rounded-md md:px-6 md:py-3 hover:bg-indigo-700"
               aria-label="Choisir ce plan"
             >
-              Choisir ce plan
-            </a>
+              Plus d'informations
+            </button>
           </div>
         </div>
+      </div>
 
+      <div
+        v-if="currentPack"
+        class="fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ease-out bg-gray-900 bg-opacity-75"
+      >
         <div
-          class="bg-white shadow-lg rounded-lg p-8 flex flex-col h-full"
-          ref="growthPlan"
+          class="relative p-6 m-6 overflow-hidden transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-2xl lg:max-w-3xl"
         >
-          <h3 class="text-xl font-semibold text-gray-900 mb-4">
-            Solutions personnalisées
-          </h3>
-          <span class="text-lg font-normal"> À partir de </span>
-          <p class="text-4xl font-bold text-gray-900 mb-4">
-            <span v-if="billingCycle === 'mensuel'">149€</span>
-            <span v-else>1 549€</span>
-            <span class="text-lg font-normal">
-              {{ billingCycle === "mensuel" ? "/mois" : "/an" }}
-            </span>
-          </p>
-          <ul class="text-gray-600 mt-6 space-y-2 flex-grow">
-            <li class="flex items-center">
-              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Création de sites web sur-mesure pour répondre à des besoins
-              spécifiques.
-            </li>
-            <li class="flex items-center">
-              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Intégration de fonctionnalités avancées (réservations, systèmes de
-              gestion, etc.).
-            </li>
-            <li class="flex items-center">
-              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Suivi complet du projet du début à la fin.
-            </li>
-            <li class="flex items-center">
-              <CheckIcon class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0" />
-              Assistance et formation personnalisée pour gérer votre site.
-            </li>
-          </ul>
-          <div class="flex justify-center mt-6">
+          <div class="sm:items-start">
+            <div class="flex items-center mb-4">
+              <ArchiveBoxIcon
+                class="flex-shrink-0 w-6 h-6 mr-2 text-indigo-600"
+              />
+              <h3 class="text-2xl font-bold text-gray-900">
+                {{ currentPack.name }}
+              </h3>
+            </div>
+          </div>
+          <hr class="mb-6" />
+          <div class="text-left">
+            <p class="mb-4 text-gray-600">{{ currentPack.modalDescription }}</p>
+            <ul class="flex-grow mt-6 space-y-2 text-gray-600">
+              <li
+                v-for="feature in currentPack.modalDetails"
+                :key="feature"
+                class="flex items-center"
+              >
+                <ArrowRightIcon
+                  class="flex-shrink-0 w-5 h-5 mr-2 text-indigo-600"
+                />
+                {{ feature }}
+              </li>
+            </ul>
+          </div>
+          <div class="flex gap-2 pt-6">
             <a
               href="https://cal.com/prisma-creation/consultation-de-site-web"
               target="_blank"
-              class="bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md hover:bg-indigo-700 transition mt-auto"
-              aria-label="Choisir ce plan"
+              class="px-3 py-1 mt-auto text-sm text-white transition bg-indigo-600 rounded-md md:px-5 md:py-2 hover:bg-indigo-700"
+              aria-label="Prenez rendez-vous"
             >
-              Choisir ce plan
+              Prenez rendez-vous
             </a>
+            <button
+              @click="closeModal"
+              class="px-3 py-1 mt-auto text-sm text-white transition bg-red-600 rounded-md md:px-5 md:py-2 hover:bg-red-700"
+            >
+              Fermer
+            </button>
           </div>
         </div>
       </div>
@@ -189,14 +113,113 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { CheckIcon } from "@heroicons/vue/24/solid";
+import { ref, computed, onMounted } from "vue";
+import {
+  CheckIcon,
+  ArchiveBoxIcon,
+  ArrowRightIcon,
+} from "@heroicons/vue/24/solid";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const billingCycle = ref("mensuel");
+interface Pack {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  features: string[];
+  modalDescription: string;
+  modalDetails: string[];
+  popular: boolean;
+}
+
+const showModal = ref<string | null>(null);
+
+const packs = ref<Pack[]>([
+  {
+    id: "essential",
+    name: "Pack Essentiel",
+    price: 799,
+    description:
+      "Le Pack Essentiel vous offre un site vitrine simple et efficace pour présenter vos services et produits.",
+    features: [
+      "Devis personnalisé : Adaptable selon vos besoins spécifiques.",
+      "Idéal pour : Petites entreprises, artisans, freelances.",
+      "Mise en place rapide et efficace avec des outils éprouvés.",
+      "Inclus : Design personnalisé, optimisation SEO de base, documentation pour gérer votre site de manière autonome.",
+      "WordPress, Drupal.",
+    ],
+    modalDescription:
+      "Idéal pour les petites entreprises, artisans, freelances souhaitant une présence en ligne simple et efficace. Le Pack Essentiel vous permet de mettre en avant vos services et produits avec un site vitrine élégant et fonctionnel. Grâce à une structure claire et un design épuré, vous bénéficiez d’une vitrine en ligne qui inspire confiance à vos visiteurs.",
+    modalDetails: [
+      "Design personnalisé et adaptatif pour tous les supports (ordinateurs, tablettes, smartphones).",
+      "Optimisation SEO de base pour une meilleure visibilité sur les moteurs de recherche.",
+      "Documentation simple pour gérer facilement votre site de manière autonome.",
+      "Suivi personnalisé pour les modifications mineures après la mise en ligne.",
+    ],
+    popular: false,
+  },
+  {
+    id: "boutique",
+    name: "Pack Boutique",
+    price: 1199,
+    description:
+      "Le Pack Boutique vous permet de lancer votre activité e-commerce avec une boutique en ligne clé en main.",
+    features: [
+      "Devis personnalisé : Ajustable selon les fonctionnalités demandées.",
+      "Idéal pour : Commerçants, entreprises souhaitant vendre en ligne.",
+      "Inclus : Design sur-mesure, configuration des paiements sécurisés, assistance pour le lancement de la boutique.",
+      "Shopify, WooCommerce (WordPress).",
+    ],
+    modalDescription:
+      "Idéal pour les commerçants et entrepreneurs souhaitant lancer une activité de vente en ligne. Le Pack Boutique est conçu pour ceux qui veulent se lancer rapidement et efficacement dans le commerce en ligne. Vous obtiendrez une boutique clé en main avec toutes les fonctionnalités nécessaires pour gérer et développer votre activité.",
+    modalDetails: [
+      "Création d'une boutique en ligne au design moderne et intuitif.",
+      "Configuration des paiements sécurisés et des méthodes de livraison.",
+      "Assistance pour l’importation de vos premiers produits et la gestion de votre catalogue.",
+      "Documentation complète pour gérer et maintenir votre boutique de manière autonome.",
+      "Accompagnement marketing pour maximiser vos ventes et améliorer l'expérience client.",
+    ],
+    popular: true,
+  },
+  {
+    id: "custom",
+    name: "Pack Sur Mesure",
+    price: 2499,
+    description:
+      "Le Pack Sur Mesure est pensé pour ceux qui recherchent une solution unique, créée de A à Z selon leurs besoins précis.",
+    features: [
+      "Devis personnalisé : Pour des projets complexes, ajustement possible selon les exigences.",
+      "Entreprises avec des besoins spécifiques, startups, projets innovants.",
+      "Inclus : Design UX/UI, développement front-end et back-end, SEO avancé, intégration d'API, suivi et support post-lancement.",
+      "Développement personnalisé.",
+    ],
+    modalDescription:
+      "Idéal pour les entreprises, startups, et projets innovants nécessitant un développement personnalisé et des fonctionnalités uniques. Le Pack Sur Mesure est destiné à ceux qui ont des idées spécifiques et des besoins particuliers. Nous concevons votre site de A à Z, avec une attention particulière aux détails et à la performance, pour créer une solution unique et optimisée.",
+    modalDetails: [
+      "Design UX/UI personnalisé et développement complet front-end et back-end.",
+      "Intégration de fonctionnalités avancées selon vos besoins (réservations, systèmes de gestion, API externes, etc.).",
+      "Optimisation SEO avancée pour une meilleure performance dans les résultats de recherche.",
+      "Suivi du projet du début à la fin avec des points réguliers pour s'assurer que tout est conforme à vos attentes.",
+      "Assistance et support technique après la mise en ligne pour garantir la stabilité et la performance.",
+    ],
+    popular: false,
+  },
+]);
+
+function openModal(packId: string) {
+  showModal.value = packId;
+}
+
+function closeModal() {
+  showModal.value = null;
+}
+
+const currentPack = computed(() => {
+  return packs.value.find((pack) => pack.id === showModal.value) || null;
+});
 
 onMounted(() => {
   gsap.from("#services h2", {
@@ -218,18 +241,6 @@ onMounted(() => {
     ease: "power3.out",
     scrollTrigger: {
       trigger: "#services p",
-      start: "top 80%",
-    },
-  });
-
-  gsap.from("#services .buttons", {
-    duration: 1,
-    scale: 0.9,
-    opacity: 0,
-    delay: 0.4,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: "#services .flex",
       start: "top 80%",
     },
   });

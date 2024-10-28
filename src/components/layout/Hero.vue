@@ -2,18 +2,18 @@
   <section id="accueil" class="relative px-6 py-16 lg:px-8 lg:py-36">
     <div class="absolute inset-0 overflow-hidden">
       <img
-        class="w-full h-full object-cover pointer-events-none select-none"
+        class="object-cover w-full h-full pointer-events-none select-none"
         src="../../assets/fond.svg"
         alt="Fond"
         draggable="false"
       />
     </div>
     <div
-      class="container relative mx-auto flex gap-x-8 flex-col md:flex-row items-start justify-between"
+      class="container relative flex flex-col items-start justify-between mx-auto gap-x-8 md:flex-row"
     >
-      <div class="md:w-1/2 text-center md:text-left">
+      <div class="text-center md:w-1/2 md:text-left">
         <h1
-          class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 gsap-title"
+          class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl gsap-title"
         >
           Votre site web
           <span class="highlight-container">
@@ -21,11 +21,11 @@
             <span class="highlight">sur mesure</span> </span
           >, simplement
         </h1>
-        <p class="text-lg text-gray-600 mb-8 gsap-description">
-          Que vous soyez un particulier ou un petit commerçant, nous vous
-          accompagnons à chaque étape pour mettre en place une présence en ligne
-          professionnelle. De la création à la mise à jour, bénéficiez d'un
-          suivi personnalisé.
+        <p class="mb-8 text-lg text-gray-600 gsap-description">
+          Que vous soyez un particulier, un artisan ou un petit commerçant, nous
+          vous accompagnons à chaque étape pour créer et maintenir une présence
+          en ligne professionnelle. De la conception à la mise à jour, profitez
+          d'un suivi personnalisé adapté à vos besoins.
         </p>
 
         <div
@@ -33,7 +33,7 @@
         >
           <a
             href="#services"
-            class="bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition w-max"
+            class="px-6 py-3 text-white transition bg-indigo-600 rounded-md hover:bg-indigo-700 w-max"
             aria-label="Découvrir nos services"
           >
             Découvrir nos services
@@ -41,7 +41,7 @@
           <a
             href="https://cal.com/prisma-creation/consultation-de-site-web"
             target="_blank"
-            class="text-indigo-600 flex items-center hover:text-indigo-700 transition prendre-rdv"
+            class="flex items-center text-indigo-600 transition hover:text-indigo-700 prendre-rdv"
             aria-label="Prendre un rendez-vous"
           >
             Prendre un rendez-vous
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <div class="md:w-1/2 mt-10 md:mt-0 gsap-image">
+      <div class="mt-10 md:w-1/2 md:mt-0 gsap-image">
         <img
           class="object-cover w-full h-full"
           src="../../assets/logo_prismacreation.svg"
@@ -59,32 +59,32 @@
       </div>
 
       <!-- <div
-        class="mx-auto max-w-xs sm:max-w-xs lg:max-w-lg lg:grid lg:grid-cols-2 lg:gap-x-4 gsap-image mt-8 lg:mt-0"
+        class="max-w-xs mx-auto mt-8 sm:max-w-xs lg:max-w-lg lg:grid lg:grid-cols-2 lg:gap-x-4 gsap-image lg:mt-0"
       >
         <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-4">
-          <div class="aspect-h-3 aspect-w-4 overflow-hidden rounded-md">
+          <div class="overflow-hidden rounded-md aspect-h-3 aspect-w-4">
             <img
               src="../../assets/meteotranquille.png"
               alt="Model wearing plain black basic tee."
-              class="h-full w-full object-cover object-center"
+              class="object-cover object-center w-full h-full"
             />
           </div>
-          <div class="aspect-h-3 aspect-w-4 overflow-hidden rounded-md">
+          <div class="overflow-hidden rounded-md aspect-h-3 aspect-w-4">
             <img
               src="../../assets/meteotranquille.png"
               alt="Model wearing plain gray basic tee."
-              class="h-full w-full object-cover object-center"
+              class="object-cover object-center w-full h-full"
             />
           </div>
         </div>
 
         <div
-          class="aspect-h-4 aspect-w-4 lg:aspect-h-5 lg:aspect-w-3 sm:overflow-hidden rounded-md"
+          class="rounded-md aspect-h-4 aspect-w-4 lg:aspect-h-5 lg:aspect-w-3 sm:overflow-hidden"
         >
           <img
             src="../../assets/meteotranquille2.png"
             alt="Model wearing plain white basic tee."
-            class="h-full w-full object-cover object-center rounded-md"
+            class="object-cover object-center w-full h-full rounded-md"
           />
         </div>
       </div> -->

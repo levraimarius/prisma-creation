@@ -1,8 +1,8 @@
 <template>
-  <div id="contact" class="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
-    <div class="mx-auto max-w-5xl lg:grid lg:grid-cols-12 lg:gap-x-8">
+  <div id="contact" class="px-6 py-24 bg-white isolate sm:py-32 lg:px-8">
+    <div class="max-w-5xl mx-auto lg:grid lg:grid-cols-12 lg:gap-x-8">
       <div
-        class="lg:col-span-4 lg:mb-0 lg:text-left text-center gsap-contact-title"
+        class="text-center lg:col-span-4 lg:mb-0 lg:text-left gsap-contact-title"
       >
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           Contactez-nous
@@ -10,9 +10,9 @@
         <p class="mt-2 text-lg leading-8 text-gray-600">
           Discutons de votre projet.
         </p>
-        <div class="mt-10 space-y-6 lg:space-y-8 text-left">
+        <div class="mt-10 space-y-6 text-left lg:space-y-8">
           <div class="flex items-start">
-            <MapPinIcon class="w-6 h-6 text-indigo-600 mr-3" />
+            <MapPinIcon class="w-6 h-6 mr-3 text-indigo-600" />
             <div>
               <h3 class="text-lg font-medium text-gray-900">
                 Où intervenons-nous ?
@@ -23,24 +23,24 @@
             </div>
           </div>
           <div class="flex items-start">
-            <EnvelopeIcon class="w-6 h-6 text-indigo-600 mr-3" />
+            <EnvelopeIcon class="w-6 h-6 mr-3 text-indigo-600" />
             <div>
               <h3 class="text-lg font-medium text-gray-900">
                 Vous préférez un contact plus direct ?
               </h3>
               <a
                 href="mailto:contact@prismacreation.fr"
-                class="text-indigo-600 transition hover:text-indigo-700 flex items-center"
+                class="flex items-center text-indigo-600 transition hover:text-indigo-700"
                 >contact@prismacreation.fr</a
               >
             </div>
           </div>
         </div>
       </div>
-      <div class="lg:col-span-8 mt-16 lg:mt-0">
+      <div class="mt-16 lg:col-span-8 lg:mt-0">
         <form
           @submit.prevent="sendEmail"
-          class="mx-auto lg:mx-0 mt-16 max-w-xl sm:mt-20 gsap-contact-form"
+          class="max-w-xl mx-auto mt-16 lg:mx-0 sm:mt-20 gsap-contact-form"
         >
           <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
             <div>
@@ -118,7 +118,7 @@
               as="div"
               class="flex gap-x-4 sm:col-span-2 gsap-contact-switch"
             >
-              <div class="flex h-6 items-center">
+              <div class="flex items-center h-6">
                 <Switch
                   v-model="agreed"
                   :class="[
@@ -145,14 +145,14 @@
                 <a
                   href="/politique-de-confidentialite"
                   target="_blank"
-                  class="font-semibold text-indigo-600 hover:text-indigo-700 transition"
+                  class="font-semibold text-indigo-600 transition hover:text-indigo-700"
                   >politique&nbsp;de&nbsp;confidentialité</a
                 >.
               </p>
             </SwitchGroup>
             <div class="recaptcha-container">
               <div
-                class="g-recaptcha mt-4"
+                class="mt-4 g-recaptcha"
                 data-sitekey="6Ld5dmUqAAAAACd168BGNtu1qEz53-tCrex83G3G"
                 ref="recaptcha"
               ></div>
@@ -161,7 +161,7 @@
           <div class="mt-10 gsap-contact-button">
             <button
               type="submit"
-              class="block w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600 hover:bg-indigo-700 focus-visible:outline-indigo-600 transition"
+              class="block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600 hover:bg-indigo-700 focus-visible:outline-indigo-600 transition"
               aria-label="Parlons-en"
             >
               Parlons-en
