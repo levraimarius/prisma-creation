@@ -103,7 +103,7 @@ import { StarIcon as StarIconOutline } from "@heroicons/vue/24/outline";
 const reviews = ref([
   {
     id: 1,
-    name: "juliendulaurans",
+    name: "Julien D.",
     rating: 5,
     text: "Prestataire Haute Gamme avec un rapport qualité prix d'exception. Un rendu rapide totalement conforme à mes exigeances et besoins avec des révisions acceptées jusqu'à la livraison finale du produit. Je recommande vivement ce prestataire. J'avais demandé la réalisation d'une page internet dans 5 langues pour un nouveau produit.",
     profileImage:
@@ -111,9 +111,9 @@ const reviews = ref([
   },
   {
     id: 2,
-    name: "Elisa Ridel",
+    name: "Elisa R.",
     rating: 5,
-    text: "Je recommande vivement Marius, avec qui j'ai eu le plaisir de collaborer. C'est un développeur web consciencieux. Il fait preuve d'une excellente capacité à comprendre rapidement les besoins du projet et à proposer des solutions techniques solides et optimisées. Sa rigueur et son sens du détail garantissent toujours un code propre et efficace. En plus de ses compétences techniques, Marius est très réactif face aux problèmes et sait gérer les priorités avec professionnalisme. C'est également un excellent communicant, et travailler avec lui est un vrai plaisir.",
+    text: "Je recommande vivement Marius, avec qui j'ai eu le plaisir de collaborer. C'est un développeur web consciencieux. Il fait preuve d'une excellente capacité à comprendre rapidement les besoins du projet et à proposer des solutions techniques solides et optimisées. Sa rigueur et son sens du détail garantissent toujours un code...",
     profileImage: "https://dam.malt.com/anonymous?w=80&force_format=png",
   },
 ]);
