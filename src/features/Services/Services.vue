@@ -99,7 +99,7 @@
           </div>
           <div class="flex gap-2 pt-6">
             <a
-              href="https://cal.com/prisma-creation/consultation-de-site-web"
+              :href="currentPack.link"
               target="_blank"
               class="px-3 py-1 mt-auto text-white transition bg-indigo-600 rounded-md md:px-5 md:py-2 hover:bg-indigo-700"
               aria-label="Prenez rendez-vous"
@@ -134,6 +134,7 @@ interface Pack {
   features: string[];
   modalDescription: string;
   modalDetails: string[];
+  link: string;
   popular: boolean;
 }
 
@@ -161,6 +162,7 @@ const packs = ref<Pack[]>([
       "Documentation simple pour gérer facilement votre site de manière autonome.",
       "Suivi personnalisé pour les modifications mineures après la mise en ligne.",
     ],
+    link: "https://cal.com/prisma-creation/consultation-pack-essentiel",
     popular: false,
   },
   {
@@ -184,6 +186,7 @@ const packs = ref<Pack[]>([
       "Documentation complète pour gérer et maintenir votre boutique de manière autonome.",
       "Accompagnement marketing pour maximiser vos ventes et améliorer l'expérience client.",
     ],
+    link: "https://cal.com/prisma-creation/consultation-pack-boutique",
     popular: true,
   },
   {
@@ -207,6 +210,7 @@ const packs = ref<Pack[]>([
       "Suivi du projet du début à la fin avec des points réguliers pour s'assurer que tout est conforme à vos attentes.",
       "Assistance et support technique après la mise en ligne pour garantir la stabilité et la performance.",
     ],
+    link: "https://cal.com/prisma-creation/consultation-pack-sur-mesure",
     popular: false,
   },
 ]);

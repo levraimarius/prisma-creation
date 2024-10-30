@@ -39,7 +39,7 @@
             Découvrir nos services
           </a>
           <a
-            href="https://cal.com/prisma-creation/consultation-de-site-web"
+            href="https://cal.com/prisma-creation/consultation-pour-la-creation-dun-site-web"
             target="_blank"
             class="flex items-center text-indigo-600 transition hover:text-indigo-700 prendre-rdv"
             aria-label="Prendre un rendez-vous"

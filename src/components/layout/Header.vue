@@ -32,7 +32,7 @@
             >
 
             <a
-              href="https://cal.com/prisma-creation/consultation-de-site-web"
+              href="https://cal.com/prisma-creation/consultation-pour-la-creation-dun-site-web"
               target="_blank"
               class="px-6 py-3 text-white transition bg-indigo-600 rounded-md text-md hover:bg-indigo-700 w-max"
               aria-label="Prendre un rendez-vous"
