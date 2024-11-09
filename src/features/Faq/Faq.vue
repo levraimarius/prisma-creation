@@ -1,22 +1,22 @@
 <template>
-  <section id="faq" class="bg-gray-50 px-6 py-24 sm:py-32 lg:px-8">
-    <div class="container mx-auto max-w-4xl text-center">
-      <h2 class="text-4xl font-bold text-gray-900 mb-4 gsap-faq-title">
+  <section id="faq" class="px-6 py-24 bg-gray-50 sm:py-32 lg:px-8">
+    <div class="container max-w-4xl mx-auto text-center">
+      <h2 class="mb-4 text-4xl font-bold text-gray-900">
         Quelques questions ?
       </h2>
-      <p class="text-gray-600 mb-12 max-w-2xl mx-auto gsap-faq-description">
+      <p class="max-w-2xl mx-auto mb-12 text-gray-600">
         Retrouvez ici les réponses aux questions fréquentes de nos clients.
       </p>
 
-      <div class="space-y-4 gsap-faq-items">
+      <div class="space-y-4">
         <div
           v-for="(faq, index) in faqs"
           :key="index"
-          class="border-b border-gray-300 pb-4"
+          class="pb-4 border-b border-gray-300"
         >
           <button
             @click="toggleAnswer(index)"
-            class="flex items-center justify-between w-full text-left text-lg text-gray-900 py-2 focus:ring-2 focus:ring-inset focus:ring-indigo-600 transition"
+            class="flex items-center justify-between w-full py-2 text-lg text-left text-gray-900 transition focus:ring-2 focus:ring-inset focus:ring-indigo-600"
             :aria-label="faq.question"
           >
             {{ faq.question }}
@@ -28,7 +28,7 @@
             </span>
           </button>
           <transition name="fade">
-            <p v-if="faq.open" class="text-gray-600 text-left mt-2">
+            <p v-if="faq.open" class="mt-2 text-left text-gray-600">
               {{ faq.answer }}
             </p>
           </transition>
@@ -39,12 +39,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import { ChevronDownIcon } from "@heroicons/vue/24/outline";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const faqs = ref([
   {
@@ -88,43 +84,6 @@ const faqs = ref([
 const toggleAnswer = (index) => {
   faqs.value[index].open = !faqs.value[index].open;
 };
-
-onMounted(() => {
-  gsap.from(".gsap-faq-title", {
-    scrollTrigger: {
-      trigger: "#faq",
-      start: "top 80%",
-    },
-    opacity: 0,
-    y: -50,
-    duration: 1,
-    ease: "power3.out",
-  });
-
-  gsap.from(".gsap-faq-description", {
-    scrollTrigger: {
-      trigger: "#faq",
-      start: "top 80%",
-    },
-    opacity: 0,
-    y: 20,
-    delay: 0.2,
-    duration: 1,
-    ease: "power3.out",
-  });
-
-  gsap.from(".gsap-faq-items", {
-    scrollTrigger: {
-      trigger: "#faq",
-      start: "top 80%",
-    },
-    opacity: 0,
-    y: 20,
-    delay: 0.4,
-    duration: 1,
-    ease: "power3.out",
-  });
-});
 </script>
 
 <style scoped>

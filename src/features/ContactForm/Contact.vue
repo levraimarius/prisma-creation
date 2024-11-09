@@ -2,7 +2,7 @@
   <div id="contact" class="px-6 py-24 bg-gray-50 isolate sm:py-32 lg:px-8">
     <div class="max-w-5xl mx-auto lg:grid lg:grid-cols-12 lg:gap-x-8">
       <div
-        class="text-center lg:col-span-4 lg:mb-0 lg:text-left gsap-contact-title"
+        class="text-center lg:col-span-4 lg:mb-0 lg:text-left"
       >
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           Contactez-nous
@@ -40,7 +40,7 @@
       <div class="mt-16 lg:col-span-8 lg:mt-0">
         <form
           @submit.prevent="sendEmail"
-          class="max-w-xl mx-auto mt-16 lg:mx-0 sm:mt-20 gsap-contact-form"
+          class="max-w-xl mx-auto mt-16 lg:mx-0 sm:mt-20"
         >
           <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
             <div>
@@ -116,7 +116,7 @@
             </div>
             <SwitchGroup
               as="div"
-              class="flex gap-x-4 sm:col-span-2 gsap-contact-switch"
+              class="flex gap-x-4 sm:col-span-2"
             >
               <div class="flex items-center h-6">
                 <Switch
@@ -158,7 +158,7 @@
               ></div>
             </div>
           </div>
-          <div class="mt-10 gsap-contact-button">
+          <div class="mt-10">
             <button
               type="submit"
               class="block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600 hover:bg-indigo-700 focus-visible:outline-indigo-600 transition"
@@ -183,15 +183,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ref } from "vue";
 import { Switch, SwitchGroup } from "@headlessui/vue";
 import Notification from "../../components/common/Notification.vue";
 import emailjs from "emailjs-com";
 import { EnvelopeIcon, MapPinIcon } from "@heroicons/vue/24/solid";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const form = ref({
   firstName: "",
@@ -209,55 +205,6 @@ let notificationTrigger = ref(0);
 const emailjsUserID = "9yMDAmgKWNcDR4lQl";
 const serviceID = "service_dlp2fdl";
 const templateID = "template_xcmfgyi";
-
-onMounted(() => {
-  gsap.from(".gsap-contact-title", {
-    scrollTrigger: {
-      trigger: "#contact",
-      start: "top 80%",
-    },
-    opacity: 0,
-    y: -50,
-    duration: 1,
-    ease: "power3.out",
-  });
-
-  gsap.from(".gsap-contact-form", {
-    scrollTrigger: {
-      trigger: "#contact",
-      start: "top 80%",
-    },
-    opacity: 0,
-    y: 20,
-    delay: 0.2,
-    duration: 1,
-    ease: "power3.out",
-  });
-
-  gsap.from(".gsap-contact-switch", {
-    scrollTrigger: {
-      trigger: "#contact",
-      start: "top 80%",
-    },
-    opacity: 0,
-    x: -20,
-    delay: 0.4,
-    duration: 1,
-    ease: "power3.out",
-  });
-
-  gsap.from(".gsap-contact-button", {
-    scrollTrigger: {
-      trigger: "#contact",
-      start: "top 80%",
-    },
-    opacity: 0,
-    y: 20,
-    delay: 0.6,
-    duration: 1,
-    ease: "power3.out",
-  });
-});
 
 const sendEmail = () => {
   notificationTrigger.value++;

@@ -9,22 +9,20 @@
 </template>
 
 <script lang="ts">
-import { defineAsyncComponent } from "vue";
+import Hero from "../components/layout/Hero.vue";
+import Services from "../features/Services/Services.vue";
+import Faq from "../features/Faq/Faq.vue";
+import Testimonials from "../features/Testimonials/Testimonials.vue";
+import Contact from "../features/ContactForm/Contact.vue";
 
 export default {
   name: "Home",
   components: {
-    Hero: defineAsyncComponent(() => import("../components/layout/Hero.vue")),
-    Services: defineAsyncComponent(
-      () => import("../features/Services/Services.vue")
-    ),
-    Faq: defineAsyncComponent(() => import("../features/Faq/Faq.vue")),
-    Testimonials: defineAsyncComponent(
-      () => import("../features/Testimonials/Testimonials.vue")
-    ),
-    Contact: defineAsyncComponent(
-      () => import("../features/ContactForm/Contact.vue")
-    ),
+    Hero,
+    Services,
+    Faq,
+    Testimonials,
+    Contact,
   },
 };
 </script>

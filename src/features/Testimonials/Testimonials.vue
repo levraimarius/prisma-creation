@@ -90,7 +90,7 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import Swiper from "swiper";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 
 import {
@@ -133,12 +133,16 @@ const averageRating = computed(() => {
 
 onMounted(() => {
   new Swiper(".mySwiper", {
-    modules: [Navigation],
+    modules: [Navigation, Autoplay],
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
     loop: true,
+    autoplay: {
+      delay: 8000,
+      disableOnInteraction: false,
+    },
     slidesPerView: 2,
     spaceBetween: 28,
     breakpoints: {

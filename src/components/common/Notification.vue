@@ -5,16 +5,16 @@
     :class="['fixed', notificationPositionClass, notificationTypeClass]"
     role="alert"
     aria-live="assertive"
-    class="max-w-xs sm:max-w-sm md:max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden"
+    class="w-full max-w-xs overflow-hidden bg-white rounded-lg shadow-lg pointer-events-auto sm:max-w-sm md:max-w-md ring-1 ring-black ring-opacity-5"
   >
     <div class="p-4">
       <div class="flex items-start">
         <slot name="icon">
           <HeroCheckIcon
             v-if="type === 'success'"
-            class="h-6 w-6 text-green-400"
+            class="w-6 h-6 text-green-400"
           />
-          <HeroExclamationCircleIcon v-else class="h-6 w-6 text-red-400" />
+          <HeroExclamationCircleIcon v-else class="w-6 h-6 text-red-400" />
         </slot>
         <div class="ml-3 w-0 flex-1 pt-0.5">
           <slot name="title">
@@ -27,11 +27,11 @@
         <slot name="close-button">
           <button
             @click="close"
-            class="rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="inline-flex text-gray-400 rounded-md hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             aria-label="Fermer"
           >
             <span class="sr-only">Fermer</span>
-            <HeroXMarkIcon class="h-5 w-5" />
+            <HeroXMarkIcon class="w-5 h-5" />
           </button>
         </slot>
       </div>
@@ -41,7 +41,6 @@
 
 <script setup>
 import { ref, computed, watch, nextTick } from "vue";
-import { gsap } from "gsap";
 import {
   CheckCircleIcon as HeroCheckIcon,
   XMarkIcon as HeroXMarkIcon,
@@ -81,31 +80,11 @@ const notificationPositionClass = computed(() => {
     : "bottom-5 right-5";
 });
 
-const close = () => {
-  gsap.to(notification.value, {
-    opacity: 0,
-    y: 50,
-    duration: 0.5,
-    onComplete: () => {
-      visible.value = false;
-      if (hideTimeout) {
-        clearTimeout(hideTimeout);
-      }
-    },
-  });
-};
-
 watch(
   () => props.trigger,
   async () => {
     visible.value = true;
     await nextTick();
-
-    gsap.fromTo(
-      notification.value,
-      { opacity: 0, y: 0 },
-      { opacity: 1, y: -10, duration: 0.5 }
-    );
 
     if (hideTimeout) {
       clearTimeout(hideTimeout);

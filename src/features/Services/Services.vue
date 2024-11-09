@@ -48,7 +48,7 @@
           <div class="flex justify-center mt-6">
             <button
               @click="openModal(pack.id)"
-              class="px-4 py-2 mt-auto text-white transition bg-indigo-600 rounded-md md:px-6 md:py-3 hover:bg-indigo-700"
+              class="px-4 py-2 mt-auto text-white bg-indigo-600 rounded-md md:px-6 md:py-3 hover:bg-indigo-700"
               aria-label="Choisir ce plan"
             >
               Plus d'informations
@@ -59,10 +59,10 @@
 
       <div
         v-if="currentPack"
-        class="fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ease-out bg-gray-900 bg-opacity-75"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75"
       >
         <div
-          class="relative p-6 m-6 overflow-hidden transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-2xl lg:max-w-3xl"
+          class="relative p-6 m-6 overflow-hidden bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-2xl lg:max-w-3xl"
         >
           <div class="sm:items-start">
             <div class="flex items-center justify-between mb-4">
@@ -74,9 +74,9 @@
                   {{ currentPack.name }}
                 </h3>
               </div>
-              <button @click="closeModal" class="text-sm transition rounded-md">
+              <button @click="closeModal" class="text-sm rounded-md">
                 <XMarkIcon
-                  class="flex-shrink-0 w-5 h-5 text-gray-500 transition hover:text-red-600"
+                  class="flex-shrink-0 w-5 h-5 text-gray-500 hover:text-red-600"
                 />
               </button>
             </div>
@@ -101,7 +101,7 @@
             <a
               :href="currentPack.link"
               target="_blank"
-              class="px-3 py-1 mt-auto text-white transition bg-indigo-600 rounded-md md:px-5 md:py-2 hover:bg-indigo-700"
+              class="px-3 py-1 mt-auto text-white bg-indigo-600 rounded-md md:px-5 md:py-2 hover:bg-indigo-700"
               aria-label="Prenez rendez-vous"
             >
               Prenez rendez-vous
@@ -114,17 +114,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { ref, computed } from "vue";
 import {
   CheckIcon,
   ArchiveBoxIcon,
   ArrowRightIcon,
   XMarkIcon,
 } from "@heroicons/vue/24/solid";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface Pack {
   id: string;
@@ -225,47 +221,5 @@ function closeModal() {
 
 const currentPack = computed(() => {
   return packs.value.find((pack) => pack.id === showModal.value) || null;
-});
-
-onMounted(() => {
-  gsap.from("#services h2", {
-    duration: 1,
-    y: -50,
-    opacity: 0,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: "#services h2",
-      start: "top 80%",
-    },
-  });
-
-  gsap.from("#services p", {
-    duration: 1,
-    y: 30,
-    opacity: 0,
-    delay: 0.2,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: "#services p",
-      start: "top 80%",
-    },
-  });
-
-  gsap.fromTo(
-    "#services .grid > div",
-    { y: 50, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0.2,
-      delay: 0.2,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: "#services .grid",
-        start: "top 80%",
-      },
-    }
-  );
 });
 </script>
