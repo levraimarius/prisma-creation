@@ -1,9 +1,7 @@
 <template>
   <div id="contact" class="px-6 py-24 bg-gray-50 isolate sm:py-32 lg:px-8">
     <div class="max-w-5xl mx-auto lg:grid lg:grid-cols-12 lg:gap-x-8">
-      <div
-        class="text-center lg:col-span-4 lg:mb-0 lg:text-left"
-      >
+      <div class="text-center lg:col-span-4 lg:mb-0 lg:text-left">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           Contactez-nous
         </h2>
@@ -114,10 +112,7 @@
                 ></textarea>
               </div>
             </div>
-            <SwitchGroup
-              as="div"
-              class="flex gap-x-4 sm:col-span-2"
-            >
+            <SwitchGroup as="div" class="flex gap-x-4 sm:col-span-2">
               <div class="flex items-center h-6">
                 <Switch
                   v-model="agreed"

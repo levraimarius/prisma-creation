@@ -1,6 +1,6 @@
 <template>
-  <section class="privacy-policy px-6 py-24 sm:py-32 lg:px-8">
-    <div class="container mx-auto max-w-2xl">
+  <section class="px-6 py-24 privacy-policy sm:py-32 lg:px-8">
+    <div class="container max-w-2xl mx-auto">
       <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         Politique de Confidentialité
       </h1>
@@ -33,7 +33,7 @@
         <p class="mt-4 text-gray-600">
           Les informations que nous collectons sont utilisées pour :
         </p>
-        <ul class="list-disc list-inside mt-4 text-gray-600">
+        <ul class="mt-4 text-gray-600 list-disc list-inside">
           <li>Fournir, exploiter et améliorer nos services</li>
           <li>Répondre à vos questions et demandes de renseignements</li>
           <li>
@@ -122,13 +122,16 @@
         </p>
       </article>
     </div>
-
-    <Contact />
   </section>
+  <Contact />
 </template>
 
-<script setup>
-import Contact from "../features/ContactForm/Contact.vue";
+<script setup lang="ts">
+import { defineAsyncComponent } from "vue";
+
+const Contact = defineAsyncComponent(
+  () => import("../features/ContactForm/Contact.vue")
+);
 </script>
 
 <style scoped>

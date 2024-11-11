@@ -1,6 +1,6 @@
 <template>
-  <section class="terms-of-use px-6 py-24 sm:py-32 lg:px-8">
-    <div class="container mx-auto max-w-2xl">
+  <section class="px-6 py-24 terms-of-use sm:py-32 lg:px-8">
+    <div class="container max-w-2xl mx-auto">
       <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         Conditions d'Utilisation
       </h1>
@@ -93,13 +93,16 @@
         </p>
       </article>
     </div>
-
-    <Contact />
   </section>
+  <Contact />
 </template>
 
-<script setup>
-import Contact from "../features/ContactForm/Contact.vue";
+<script setup lang="ts">
+import { defineAsyncComponent } from "vue";
+
+const Contact = defineAsyncComponent(
+  () => import("../features/ContactForm/Contact.vue")
+);
 </script>
 
 <style scoped>

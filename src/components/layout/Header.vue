@@ -8,11 +8,7 @@
       <div class="relative flex items-center justify-between h-20">
         <div class="flex items-center">
           <a href="/">
-            <img
-              class="w-auto h-16"
-              src="../../assets/logo_prismacreation.svg"
-              alt="Logo Prisma Création"
-            />
+            <LogoPrismaCreation class="w-auto h-16" />
           </a>
         </div>
         <div class="hidden sm:ml-6 md:block">
@@ -28,6 +24,7 @@
                 'rounded-md px-3 py-2 text-md font-medium',
               ]"
               :aria-current="item.current ? 'page' : undefined"
+              @click.prevent="navigateToSection(item.href)"
               >{{ item.name }}</a
             >
 
@@ -55,7 +52,7 @@
       </div>
     </div>
 
-    <DisclosurePanel class="md:hidden">
+    <DisclosurePanel class="md:hidden" ref="menuPanel" v-show="open">
       <div class="px-4 pt-2 pb-3 space-y-1">
         <DisclosureButton
           v-for="item in navigation"
@@ -68,6 +65,7 @@
             'block rounded-md px-3 py-2 text-lg font-medium',
           ]"
           :aria-current="item.current ? 'page' : undefined"
+          @click.prevent="navigateToSection(item.href)"
           >{{ item.name }}</DisclosureButton
         >
       </div>
@@ -76,9 +74,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
+import { ref, onMounted, onBeforeUnmount, watch, nextTick } from "vue";
+import { useRouter } from "vue-router";
+import { Disclosure, DisclosureButton } from "@headlessui/vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
+import anime from "animejs";
+import LogoPrismaCreation from "../../assets/logo_prismacreation.svg";
 
 const navigation = [
   { name: "Accueil", href: "#accueil", current: true },
@@ -89,6 +90,19 @@ const navigation = [
 ];
 
 const activeSection = ref("#accueil");
+const router = useRouter();
+const menuPanel = ref(null);
+
+const navigateToSection = (href) => {
+  if (window.location.pathname !== "/") {
+    router.push(`/${href}`);
+  } else {
+    const section = document.querySelector(href);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+};
 
 const detectSectionInView = () => {
   const sections = navigation.map((item) => document.querySelector(item.href));
@@ -104,6 +118,48 @@ const detectSectionInView = () => {
     }
   });
 };
+
+// Fonction d'animation d'ouverture du menu avec calcul de la hauteur dynamique
+const openMenuAnimation = async () => {
+  await nextTick(); // S'assurer que le DOM est mis à jour
+  const height = menuPanel.value.scrollHeight; // Obtenir la hauteur du contenu
+
+  anime({
+    targets: menuPanel.value,
+    height: [0, `${height}px`],
+    opacity: [0, 1],
+    duration: 500,
+    easing: "easeInOutQuad",
+    complete: () => {
+      menuPanel.value.style.height = "auto"; // Réinitialiser à auto après l'animation
+    },
+  });
+};
+
+// Fonction d'animation de fermeture du menu
+const closeMenuAnimation = () => {
+  const height = menuPanel.value.scrollHeight;
+
+  anime({
+    targets: menuPanel.value,
+    height: [`${height}px`, 0],
+    opacity: [1, 0],
+    duration: 500,
+    easing: "easeInOutQuad",
+  });
+};
+
+// Détecter l'ouverture/fermeture du menu
+watch(
+  () => open,
+  (newValue) => {
+    if (newValue) {
+      openMenuAnimation();
+    } else {
+      closeMenuAnimation();
+    }
+  }
+);
 
 onMounted(() => {
   window.addEventListener("scroll", detectSectionInView);
