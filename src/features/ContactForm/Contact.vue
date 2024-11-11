@@ -166,7 +166,6 @@
       </div>
     </div>
 
-    <!-- Notifications -->
     <Notification
       v-if="showNotification"
       :type="notificationType"
