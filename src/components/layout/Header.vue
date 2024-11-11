@@ -119,10 +119,9 @@ const detectSectionInView = () => {
   });
 };
 
-// Fonction d'animation d'ouverture du menu avec calcul de la hauteur dynamique
 const openMenuAnimation = async () => {
-  await nextTick(); // S'assurer que le DOM est mis à jour
-  const height = menuPanel.value.scrollHeight; // Obtenir la hauteur du contenu
+  await nextTick();
+  const height = menuPanel.value.scrollHeight;
 
   anime({
     targets: menuPanel.value,
@@ -131,12 +130,11 @@ const openMenuAnimation = async () => {
     duration: 500,
     easing: "easeInOutQuad",
     complete: () => {
-      menuPanel.value.style.height = "auto"; // Réinitialiser à auto après l'animation
+      menuPanel.value.style.height = "auto";
     },
   });
 };
 
-// Fonction d'animation de fermeture du menu
 const closeMenuAnimation = () => {
   const height = menuPanel.value.scrollHeight;
 
@@ -149,7 +147,6 @@ const closeMenuAnimation = () => {
   });
 };
 
-// Détecter l'ouverture/fermeture du menu
 watch(
   () => open,
   (newValue) => {

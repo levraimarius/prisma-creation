@@ -1,11 +1,8 @@
 <template>
   <section id="accueil" class="relative px-6 py-16 lg:px-8 lg:py-36">
     <div class="absolute inset-0 overflow-hidden">
-      <img
-        class="object-cover w-full h-full pointer-events-none select-none"
-        src="../../assets/fond.svg"
-        alt="Fond"
-        draggable="false"
+      <FondHero
+        class="object-cover w-full pointer-events-none select-none"
       />
     </div>
     <div
@@ -51,11 +48,7 @@
       </div>
 
       <div class="mt-10 md:w-1/2 md:mt-0 anime-image">
-        <img
-          class="object-cover w-full h-full"
-          src="../../assets/logo_prismacreation.svg"
-          alt="Logo de Prisma Création"
-        />
+        <LogoPrismaCreation class="object-cover w-full" />
       </div>
     </div>
     <div
@@ -68,6 +61,8 @@
 import { onMounted } from "vue";
 import { ArrowRightIcon } from "@heroicons/vue/24/outline";
 import anime from "animejs";
+import FondHero from "../../assets/fond.svg";
+import LogoPrismaCreation from "../../assets/logo_prismacreation.svg";
 
 onMounted(() => {
   anime({
