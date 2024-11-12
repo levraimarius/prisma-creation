@@ -17,7 +17,7 @@
         <div
           v-for="pack in packs"
           :key="pack.id"
-          :class="`bg-white shadow-lg rounded-lg p-8 flex flex-col h-full ${
+          :class="`relative bg-white shadow-lg rounded-lg p-8 flex flex-col h-full ${
             pack.popular ? 'border-2 border-indigo-500' : ''
           }`"
         >

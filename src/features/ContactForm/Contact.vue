@@ -109,22 +109,23 @@
                 ></textarea>
               </div>
             </div>
-            <SwitchGroup as="div" class="flex gap-x-4 sm:col-span-2">
+            <SwitchGroup as="div" class="flex gap-x-2 sm:col-span-2">
               <div class="flex items-center h-6">
                 <Switch
                   v-model="agreed"
                   :class="[
                     agreed ? 'bg-indigo-600' : 'bg-gray-200',
-                    'flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
+                    'flex w-10 flex-none cursor-pointer rounded-full p-1 ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
                   ]"
                   role="switch"
                   :aria-checked="agreed"
                   aria-label="Toggle agreement"
+                  @keydown.enter="agreed = !agreed"
                 >
                   <span
                     aria-hidden="true"
                     :class="[
-                      agreed ? 'translate-x-3.5' : 'translate-x-0',
+                      agreed ? 'translate-x-4' : 'translate-x-0',
                       'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out',
                     ]"
                   />
