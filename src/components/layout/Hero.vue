@@ -3,7 +3,7 @@
     <div class="absolute inset-0 overflow-hidden">
       <img
         class="object-cover w-full h-full pointer-events-none select-none"
-        src="../../assets/fond.svg"
+        :src="fondImage"
         alt="Fond"
         draggable="false"
       />
@@ -58,6 +58,7 @@
 import { onMounted } from "vue";
 import { ArrowRightIcon } from "@heroicons/vue/24/outline";
 import anime from "animejs";
+const fondImage = new URL("../../assets/fond.svg", import.meta.url).href;
 
 onMounted(() => {
   anime({
