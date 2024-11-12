@@ -142,9 +142,9 @@
             </SwitchGroup>
             <div class="recaptcha-container">
               <div
+                id="recaptcha-container"
                 class="mt-4 g-recaptcha"
                 data-sitekey="6Ld5dmUqAAAAACd168BGNtu1qEz53-tCrex83G3G"
-                ref="recaptcha"
               ></div>
             </div>
           </div>
@@ -175,7 +175,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useContactForm } from "../../composables/useContactForm/useContactForm";
 import { Switch, SwitchGroup } from "@headlessui/vue";
 import Notification from "../../components/common/Notification.vue";
@@ -196,6 +196,19 @@ const {
   isLoading,
   sendEmail,
 } = useContactForm();
+
+const recaptchaInitialized = ref(false);
+
+onMounted(() => {
+  const interval = setInterval(() => {
+    if (window.grecaptcha) {
+      window.grecaptcha.render("recaptcha-container", {
+        sitekey: "6Ld5dmUqAAAAACd168BGNtu1qEz53-tCrex83G3G",
+      });
+      clearInterval(interval);
+    }
+  }, 1000);
+});
 </script>
 
 <style scoped>

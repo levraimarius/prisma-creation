@@ -22,29 +22,22 @@ export function useContactForm() {
 
   const sendEmail = () => {
     if (!agreed.value) {
-      notificationType.value = "error";
-      notificationTitle.value = "Erreur";
-      notificationMessage.value =
-        "Veuillez accepter la politique de confidentialité avant d'envoyer le formulaire.";
-      triggerNotification();
+      triggerErrorNotification(
+        "Veuillez accepter la politique de confidentialité avant d'envoyer le formulaire."
+      );
       return;
     }
 
     if (typeof grecaptcha !== "undefined") {
       const response = grecaptcha.getResponse();
       if (!response) {
-        notificationType.value = "error";
-        notificationTitle.value = "Erreur";
-        notificationMessage.value =
-          "Veuillez vérifier le reCAPTCHA avant d'envoyer le formulaire.";
-        triggerNotification();
+        triggerErrorNotification(
+          "Veuillez vérifier le reCAPTCHA avant d'envoyer le formulaire."
+        );
         return;
       }
     } else {
-      notificationType.value = "error";
-      notificationTitle.value = "Erreur";
-      notificationMessage.value = "Le reCAPTCHA n'a pas encore été chargé.";
-      triggerNotification();
+      triggerErrorNotification("Le reCAPTCHA n'a pas encore été chargé.");
       return;
     }
 
@@ -58,39 +51,45 @@ export function useContactForm() {
     };
 
     emailjs.init(emailjsUserID);
-
     emailjs
       .send(serviceID, templateID, templateParams)
-      .then(
-        () => {
-          notificationType.value = "success";
-          notificationTitle.value = "Succès";
-          notificationMessage.value =
-            "Votre message a été envoyé avec succès !";
-          grecaptcha.reset();
-          form.value = { firstName: "", lastName: "", email: "", message: "" };
-          agreed.value = false;
-          triggerNotification();
-        },
-        () => {
-          notificationType.value = "error";
-          notificationTitle.value = "Erreur";
-          notificationMessage.value =
-            "Une erreur est survenue lors de l'envoi du message.";
-          triggerNotification();
-        }
-      )
+      .then(() => {
+        triggerSuccessNotification("Votre message a été envoyé avec succès !");
+        grecaptcha.reset();
+        form.value = { firstName: "", lastName: "", email: "", message: "" };
+        agreed.value = false;
+      })
+      .catch(() => {
+        triggerErrorNotification(
+          "Une erreur est survenue lors de l'envoi du message."
+        );
+      })
       .finally(() => {
         isLoading.value = false;
       });
   };
+
+  function triggerSuccessNotification(message) {
+    setNotification("success", "Succès", message);
+  }
+
+  function triggerErrorNotification(message) {
+    setNotification("error", "Erreur", message);
+  }
+
+  function setNotification(type, title, message) {
+    notificationType.value = type;
+    notificationTitle.value = title;
+    notificationMessage.value = message;
+    triggerNotification();
+  }
 
   function triggerNotification() {
     notificationTrigger.value++;
     showNotification.value = true;
     setTimeout(() => {
       showNotification.value = false;
-    }, 0);
+    }, 5000);
   }
 
   return {
