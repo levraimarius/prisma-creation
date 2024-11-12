@@ -1,14 +1,17 @@
 <template>
   <section id="accueil" class="relative px-6 py-16 lg:px-8 lg:py-36">
     <div class="absolute inset-0 overflow-hidden">
-      <FondHero
-        class="object-cover w-full pointer-events-none select-none"
+      <img
+        class="object-cover w-full h-full pointer-events-none select-none"
+        src="../../assets/fond.svg"
+        alt="Fond"
+        draggable="false"
       />
     </div>
     <div
-      class="container relative flex flex-col items-start justify-between mx-auto gap-x-8 md:flex-row"
+      class="container relative flex flex-col items-center justify-center mx-auto gap-x-8"
     >
-      <div class="text-center md:w-1/2 md:text-left">
+      <div class="text-center md:w-1/2">
         <h1
           class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl anime-title"
         >
@@ -25,9 +28,7 @@
           d'un suivi personnalisé adapté à vos besoins.
         </p>
 
-        <div
-          class="flex flex-col items-center space-y-4 md:flex-row md:space-x-4 md:space-y-0 anime-buttons"
-        >
+        <div class="flex flex-col items-center space-y-4 anime-buttons">
           <a
             href="#services"
             class="px-6 py-3 text-white transition bg-indigo-600 rounded-md hover:bg-indigo-700 w-max"
@@ -46,10 +47,6 @@
           </a>
         </div>
       </div>
-
-      <div class="mt-10 md:w-1/2 md:mt-0 anime-image">
-        <LogoPrismaCreation class="object-cover w-full" />
-      </div>
     </div>
     <div
       class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"
@@ -61,8 +58,6 @@
 import { onMounted } from "vue";
 import { ArrowRightIcon } from "@heroicons/vue/24/outline";
 import anime from "animejs";
-import FondHero from "../../assets/fond.svg";
-import LogoPrismaCreation from "../../assets/logo_prismacreation.svg";
 
 onMounted(() => {
   anime({
@@ -117,7 +112,7 @@ onMounted(() => {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 100%;
+  height: 80%;
   background-color: #fcd34d;
   z-index: -1;
   width: 0;

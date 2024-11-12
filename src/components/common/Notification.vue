@@ -40,7 +40,8 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, nextTick } from "vue";
+import { ref, computed, watch, nextTick, onMounted } from "vue";
+import anime from "animejs";
 import {
   CheckCircleIcon as HeroCheckIcon,
   XMarkIcon as HeroXMarkIcon,
@@ -80,11 +81,42 @@ const notificationPositionClass = computed(() => {
     : "bottom-5 right-5";
 });
 
+function close() {
+  animateOut(); // Lancer l'animation de disparition
+  if (hideTimeout) {
+    clearTimeout(hideTimeout);
+  }
+}
+
+function animateIn() {
+  anime({
+    targets: notification.value,
+    opacity: [0, 1],
+    translateY: [20, 0],
+    duration: 500,
+    easing: "easeOutExpo",
+  });
+}
+
+function animateOut() {
+  anime({
+    targets: notification.value,
+    opacity: [1, 0],
+    translateY: [0, 20],
+    duration: 500,
+    easing: "easeInExpo",
+    complete: () => {
+      visible.value = false; // Masquer l'élément après l'animation
+    },
+  });
+}
+
 watch(
   () => props.trigger,
   async () => {
     visible.value = true;
     await nextTick();
+    animateIn(); // Lancer l'animation d'apparition
 
     if (hideTimeout) {
       clearTimeout(hideTimeout);

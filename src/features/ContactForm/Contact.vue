@@ -29,8 +29,9 @@
               <a
                 href="mailto:contact@prismacreation.fr"
                 class="flex items-center text-indigo-600 transition hover:text-indigo-700"
-                >contact@prismacreation.fr</a
               >
+                contact@prismacreation.fr
+              </a>
             </div>
           </div>
         </div>
@@ -45,9 +46,8 @@
               <label
                 for="first-name"
                 class="block text-sm font-semibold leading-6 text-gray-900"
+                >Prénom</label
               >
-                Prénom
-              </label>
               <div class="mt-2.5">
                 <input
                   type="text"
@@ -63,9 +63,8 @@
               <label
                 for="last-name"
                 class="block text-sm font-semibold leading-6 text-gray-900"
+                >Nom de famille</label
               >
-                Nom de famille
-              </label>
               <div class="mt-2.5">
                 <input
                   type="text"
@@ -81,9 +80,8 @@
               <label
                 for="email"
                 class="block text-sm font-semibold leading-6 text-gray-900"
+                >Email</label
               >
-                Email
-              </label>
               <div class="mt-2.5">
                 <input
                   type="email"
@@ -99,9 +97,8 @@
               <label
                 for="message"
                 class="block text-sm font-semibold leading-6 text-gray-900"
+                >Message</label
               >
-                Message
-              </label>
               <div class="mt-2.5">
                 <textarea
                   v-model="form.message"
@@ -133,10 +130,8 @@
                   />
                 </Switch>
               </div>
-
               <p class="text-sm leading-6 text-gray-600">
                 En sélectionnant ceci, vous acceptez notre
-                {{ " " }}
                 <a
                   href="/politique-de-confidentialite"
                   target="_blank"
@@ -165,9 +160,7 @@
         </form>
       </div>
     </div>
-
     <Notification
-      v-if="showNotification"
       :type="notificationType"
       :title="notificationTitle"
       :message="notificationMessage"
@@ -178,84 +171,21 @@
 
 <script setup>
 import { ref } from "vue";
+import { useContactForm } from "../../composables/useContactForm/useContactForm";
 import { Switch, SwitchGroup } from "@headlessui/vue";
 import Notification from "../../components/common/Notification.vue";
-import emailjs from "emailjs-com";
 import { EnvelopeIcon, MapPinIcon } from "@heroicons/vue/24/solid";
 
-const form = ref({
-  firstName: "",
-  lastName: "",
-  email: "",
-  message: "",
-});
-const agreed = ref(false);
-const showNotification = ref(false);
-const notificationType = ref("success");
-const notificationTitle = ref("");
-const notificationMessage = ref("");
-let notificationTrigger = ref(0);
-
-const emailjsUserID = "9yMDAmgKWNcDR4lQl";
-const serviceID = "service_dlp2fdl";
-const templateID = "template_xcmfgyi";
-
-const sendEmail = () => {
-  notificationTrigger.value++;
-
-  if (!agreed.value) {
-    showNotification.value = true;
-    notificationType.value = "error";
-    notificationTitle.value = "Erreur";
-    notificationMessage.value =
-      "Veuillez accepter la politique de confidentialité avant d'envoyer le formulaire.";
-    return;
-  }
-
-  if (typeof grecaptcha !== "undefined") {
-    const response = grecaptcha.getResponse();
-    if (!response) {
-      showNotification.value = true;
-      notificationType.value = "error";
-      notificationTitle.value = "Erreur";
-      notificationMessage.value =
-        "Veuillez vérifier le reCAPTCHA avant d'envoyer le formulaire.";
-      return;
-    }
-  } else {
-    showNotification.value = true;
-    notificationType.value = "error";
-    notificationTitle.value = "Erreur";
-    notificationMessage.value = "Le reCAPTCHA n'a pas encore été chargé.";
-    return;
-  }
-
-  const templateParams = {
-    first_name: form.value.firstName,
-    last_name: form.value.lastName,
-    user_email: form.value.email,
-    message: form.value.message,
-  };
-
-  emailjs.init(emailjsUserID);
-
-  emailjs.send(serviceID, templateID, templateParams).then(
-    (response) => {
-      showNotification.value = true;
-      notificationType.value = "success";
-      notificationTitle.value = "Succès";
-      notificationMessage.value = "Votre message a été envoyé avec succès !";
-      grecaptcha.reset();
-    },
-    (error) => {
-      showNotification.value = true;
-      notificationType.value = "error";
-      notificationTitle.value = "Erreur";
-      notificationMessage.value =
-        "Une erreur est survenue lors de l'envoi du message.";
-    }
-  );
-};
+const {
+  form,
+  agreed,
+  showNotification,
+  notificationType,
+  notificationTitle,
+  notificationMessage,
+  notificationTrigger,
+  sendEmail,
+} = useContactForm();
 </script>
 
 <style scoped>

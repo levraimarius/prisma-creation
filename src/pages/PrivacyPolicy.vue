@@ -123,16 +123,7 @@
       </article>
     </div>
   </section>
-  <Contact />
 </template>
-
-<script setup lang="ts">
-import { defineAsyncComponent } from "vue";
-
-const Contact = defineAsyncComponent(
-  () => import("../features/ContactForm/Contact.vue")
-);
-</script>
 
 <style scoped>
 .privacy-policy {

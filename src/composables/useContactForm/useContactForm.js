@@ -1,4 +1,3 @@
-// src/composables/useContactForm.js
 import { ref } from "vue";
 import emailjs from "emailjs-com";
 
@@ -21,32 +20,30 @@ export function useContactForm() {
   const templateID = "template_xcmfgyi";
 
   const sendEmail = () => {
-    notificationTrigger.value++;
-
     if (!agreed.value) {
-      showNotification.value = true;
       notificationType.value = "error";
       notificationTitle.value = "Erreur";
       notificationMessage.value =
         "Veuillez accepter la politique de confidentialité avant d'envoyer le formulaire.";
+      triggerNotification();
       return;
     }
 
     if (typeof grecaptcha !== "undefined") {
       const response = grecaptcha.getResponse();
       if (!response) {
-        showNotification.value = true;
         notificationType.value = "error";
         notificationTitle.value = "Erreur";
         notificationMessage.value =
           "Veuillez vérifier le reCAPTCHA avant d'envoyer le formulaire.";
+        triggerNotification();
         return;
       }
     } else {
-      showNotification.value = true;
       notificationType.value = "error";
       notificationTitle.value = "Erreur";
       notificationMessage.value = "Le reCAPTCHA n'a pas encore été chargé.";
+      triggerNotification();
       return;
     }
 
@@ -61,28 +58,32 @@ export function useContactForm() {
 
     emailjs.send(serviceID, templateID, templateParams).then(
       () => {
-        showNotification.value = true;
         notificationType.value = "success";
         notificationTitle.value = "Succès";
         notificationMessage.value = "Votre message a été envoyé avec succès !";
         grecaptcha.reset();
-        form.value = {
-          firstName: "",
-          lastName: "",
-          email: "",
-          message: "",
-        };
+        form.value = { firstName: "", lastName: "", email: "", message: "" };
         agreed.value = false;
+        triggerNotification();
       },
       () => {
-        showNotification.value = true;
         notificationType.value = "error";
         notificationTitle.value = "Erreur";
         notificationMessage.value =
           "Une erreur est survenue lors de l'envoi du message.";
+        triggerNotification();
       }
     );
   };
+
+  function triggerNotification() {
+    notificationTrigger.value++;
+    showNotification.value = true;
+
+    setTimeout(() => {
+      showNotification.value = false;
+    }, 0);
+  }
 
   return {
     form,

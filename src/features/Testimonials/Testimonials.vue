@@ -12,7 +12,7 @@
         class="flex flex-wrap items-center justify-center text-left gap-y-8 lg:gap-y-0 md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8"
       >
         <div class="w-full lg:w-2/5">
-          <h2 class="mb-4 text-2xl font-bold">Ils nous ont fait confiance.</h2>
+          <h3 class="mb-4 text-2xl font-bold">Ils nous ont fait confiance.</h3>
           <div class="flex items-center mb-4">
             <div class="flex text-yellow-500">
               <StarIconSolid
