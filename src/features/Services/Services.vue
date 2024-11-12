@@ -123,12 +123,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, nextTick, onMounted } from "vue";
+import { ref, computed, nextTick } from "vue";
 import anime from "animejs";
 import {
   CheckIcon,
   ArchiveBoxIcon,
-  ArrowRightIcon,
   XMarkIcon,
   MinusIcon,
 } from "@heroicons/vue/24/solid";
