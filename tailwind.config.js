@@ -5,4 +5,11 @@ export default {
     extend: {},
   },
   plugins: [],
+  safelist: [
+    "bg-indigo-600",
+    "text-center",
+    "sm:text-4xl",
+    "animate-spin",
+    "hidden",
+  ],
 };
