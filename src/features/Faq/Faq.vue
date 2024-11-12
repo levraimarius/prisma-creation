@@ -16,13 +16,15 @@
         >
           <button
             @click="toggleAnswer(index)"
-            class="flex items-center justify-between w-full py-2 text-lg text-left text-gray-900 transition focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            class="flex items-center justify-between w-full py-2 text-lg text-left text-gray-900 transition"
             :aria-label="faq.question"
           >
             {{ faq.question }}
             <span
-              class="text-gray-500 transition-transform duration-200"
-              :class="{ 'rotate-45': faq.open }"
+              :class="[
+                'transition-transform duration-200',
+                faq.open ? 'text-indigo-600 rotate-180' : 'text-gray-500',
+              ]"
             >
               <ChevronDownIcon class="w-6 h-6" />
             </span>

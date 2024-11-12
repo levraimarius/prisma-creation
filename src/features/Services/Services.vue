@@ -60,12 +60,16 @@
       <div
         v-if="currentPack"
         class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75"
+        ref="modalOverlay"
+        @click.self="closeModal"
       >
         <div
-          class="relative p-6 m-6 overflow-hidden bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-2xl lg:max-w-3xl"
+          class="relative p-6 m-6 bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-2xl lg:max-w-3xl"
+          ref="modalContent"
+          :class="{ 'max-h-[90vh]': true }"
         >
           <div class="sm:items-start">
-            <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center justify-between">
               <div class="flex items-center">
                 <ArchiveBoxIcon
                   class="flex-shrink-0 w-6 h-6 mr-2 text-indigo-600"
@@ -81,23 +85,28 @@
               </button>
             </div>
           </div>
-          <hr class="mb-6" />
-          <div class="text-left">
+
+          <hr class="my-6" />
+
+          <div class="overflow-y-auto max-h-[60vh] px-2 text-left">
             <p class="mb-4 text-gray-600">{{ currentPack.modalDescription }}</p>
-            <ul class="flex-grow mt-6 space-y-2 text-gray-600">
+            <ul class="space-y-2 text-gray-600">
               <li
                 v-for="feature in currentPack.modalDetails"
                 :key="feature"
-                class="flex items-center"
+                class="flex items-start"
               >
-                <ArrowRightIcon
-                  class="flex-shrink-0 w-5 h-5 mr-2 text-indigo-600"
-                />
+                <span class="mt-1 mr-2 text-indigo-600"
+                  ><MinusIcon class="w-4 h-4"
+                /></span>
                 {{ feature }}
               </li>
             </ul>
           </div>
-          <div class="flex gap-2 pt-6">
+
+          <hr class="my-6" />
+
+          <div class="flex items-center gap-2">
             <a
               :href="currentPack.link"
               target="_blank"
@@ -114,12 +123,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, nextTick, onMounted } from "vue";
+import anime from "animejs";
 import {
   CheckIcon,
   ArchiveBoxIcon,
   ArrowRightIcon,
   XMarkIcon,
+  MinusIcon,
 } from "@heroicons/vue/24/solid";
 
 interface Pack {
@@ -135,6 +146,8 @@ interface Pack {
 }
 
 const showModal = ref<string | null>(null);
+const modalOverlay = ref(null);
+const modalContent = ref(null);
 
 const packs = ref<Pack[]>([
   {
@@ -213,10 +226,51 @@ const packs = ref<Pack[]>([
 
 function openModal(packId: string) {
   showModal.value = packId;
+  document.body.classList.add("overflow-hidden");
+  nextTick(() => {
+    animateModalIn();
+  });
 }
 
 function closeModal() {
-  showModal.value = null;
+  animateModalOut().then(() => {
+    showModal.value = null;
+    document.body.classList.remove("overflow-hidden");
+  });
+}
+
+function animateModalIn() {
+  anime({
+    targets: modalOverlay.value,
+    opacity: [0, 1],
+    duration: 200,
+    easing: "easeOutQuad",
+  });
+  anime({
+    targets: modalContent.value,
+    scale: [0.8, 1],
+    opacity: [0, 1],
+    duration: 200,
+    easing: "easeOutExpo",
+  });
+}
+
+function animateModalOut() {
+  return anime
+    .timeline()
+    .add({
+      targets: modalContent.value,
+      scale: [1, 0.8],
+      opacity: [1, 0],
+      duration: 300,
+      easing: "easeInExpo",
+    })
+    .add({
+      targets: modalOverlay.value,
+      opacity: [1, 0],
+      duration: 300,
+      easing: "easeInQuad",
+    }).finished;
 }
 
 const currentPack = computed(() => {
