@@ -14,6 +14,7 @@ export function useContactForm() {
   const notificationTitle = ref("");
   const notificationMessage = ref("");
   const notificationTrigger = ref(0);
+  const isLoading = ref(false);
 
   const emailjsUserID = "9yMDAmgKWNcDR4lQl";
   const serviceID = "service_dlp2fdl";
@@ -47,6 +48,8 @@ export function useContactForm() {
       return;
     }
 
+    isLoading.value = true;
+
     const templateParams = {
       first_name: form.value.firstName,
       last_name: form.value.lastName,
@@ -56,30 +59,35 @@ export function useContactForm() {
 
     emailjs.init(emailjsUserID);
 
-    emailjs.send(serviceID, templateID, templateParams).then(
-      () => {
-        notificationType.value = "success";
-        notificationTitle.value = "Succès";
-        notificationMessage.value = "Votre message a été envoyé avec succès !";
-        grecaptcha.reset();
-        form.value = { firstName: "", lastName: "", email: "", message: "" };
-        agreed.value = false;
-        triggerNotification();
-      },
-      () => {
-        notificationType.value = "error";
-        notificationTitle.value = "Erreur";
-        notificationMessage.value =
-          "Une erreur est survenue lors de l'envoi du message.";
-        triggerNotification();
-      }
-    );
+    emailjs
+      .send(serviceID, templateID, templateParams)
+      .then(
+        () => {
+          notificationType.value = "success";
+          notificationTitle.value = "Succès";
+          notificationMessage.value =
+            "Votre message a été envoyé avec succès !";
+          grecaptcha.reset();
+          form.value = { firstName: "", lastName: "", email: "", message: "" };
+          agreed.value = false;
+          triggerNotification();
+        },
+        () => {
+          notificationType.value = "error";
+          notificationTitle.value = "Erreur";
+          notificationMessage.value =
+            "Une erreur est survenue lors de l'envoi du message.";
+          triggerNotification();
+        }
+      )
+      .finally(() => {
+        isLoading.value = false;
+      });
   };
 
   function triggerNotification() {
     notificationTrigger.value++;
     showNotification.value = true;
-
     setTimeout(() => {
       showNotification.value = false;
     }, 0);
@@ -93,6 +101,7 @@ export function useContactForm() {
     notificationTitle,
     notificationMessage,
     notificationTrigger,
+    isLoading,
     sendEmail,
   };
 }

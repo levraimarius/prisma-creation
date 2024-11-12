@@ -151,10 +151,15 @@
           <div class="mt-10">
             <button
               type="submit"
-              class="block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600 hover:bg-indigo-700 focus-visible:outline-indigo-600 transition"
+              :disabled="isLoading"
+              class="flex items-center justify-center rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600 hover:bg-indigo-700 focus-visible:outline-indigo-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Parlons-en"
             >
-              Parlons-en
+              <span v-if="!isLoading">Parlons-en</span>
+              <span v-else class="flex items-center">
+                Parlons-en
+                <ArrowPathIcon class="w-5 h-5 ml-2 text-white animate-spin" />
+              </span>
             </button>
           </div>
         </form>
@@ -174,7 +179,11 @@ import { ref } from "vue";
 import { useContactForm } from "../../composables/useContactForm/useContactForm";
 import { Switch, SwitchGroup } from "@headlessui/vue";
 import Notification from "../../components/common/Notification.vue";
-import { EnvelopeIcon, MapPinIcon } from "@heroicons/vue/24/solid";
+import {
+  EnvelopeIcon,
+  MapPinIcon,
+  ArrowPathIcon,
+} from "@heroicons/vue/24/outline";
 
 const {
   form,
@@ -184,6 +193,7 @@ const {
   notificationTitle,
   notificationMessage,
   notificationTrigger,
+  isLoading,
   sendEmail,
 } = useContactForm();
 </script>
