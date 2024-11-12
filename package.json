@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fullhuman/postcss-purgecss": "^6.0.0",
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.1.5",
     "@unhead/vue": "^1.11.10",
