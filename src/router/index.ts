@@ -1,21 +1,23 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { defineAsyncComponent } from "vue";
+import Home from "../pages/Home.vue";
+import PrivacyPolicy from "../pages/PrivacyPolicy.vue";
+import TermsOfUse from "../pages/TermsOfUse.vue";
 
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: defineAsyncComponent(() => import("../pages/Home.vue")),
+    component: Home,
   },
   {
     path: "/politique-de-confidentialite",
     name: "PrivacyPolicy",
-    component: defineAsyncComponent(() => import("../pages/PrivacyPolicy.vue")),
+    component: PrivacyPolicy,
   },
   {
     path: "/conditions-utilisation",
     name: "TermsOfUse",
-    component: defineAsyncComponent(() => import("../pages/TermsOfUse.vue")),
+    component: TermsOfUse,
   },
 ];
 

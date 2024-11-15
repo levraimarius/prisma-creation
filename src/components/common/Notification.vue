@@ -2,10 +2,15 @@
   <div
     v-if="visible"
     ref="notification"
-    :class="['fixed', notificationPositionClass, notificationTypeClass]"
+    :class="[
+      'fixed',
+      notificationPositionClass,
+      notificationTypeClass,
+      'sm:max-w-sm md:max-w-md',
+    ]"
     role="alert"
     aria-live="assertive"
-    class="w-full max-w-xs overflow-hidden bg-white rounded-lg shadow-lg pointer-events-auto sm:max-w-sm md:max-w-md ring-1 ring-black ring-opacity-5"
+    class="w-full max-w-xs overflow-hidden bg-white rounded-lg shadow-lg pointer-events-auto ring-1 ring-black ring-opacity-5"
   >
     <div class="p-4">
       <div class="flex items-start">
@@ -77,12 +82,12 @@ const notificationTypeClass = computed(() => {
 
 const notificationPositionClass = computed(() => {
   return window.innerWidth < 640
-    ? "bottom-5 left-1/2 transform -translate-x-1/2"
+    ? "bottom-5 left-2 right-2 transform-none"
     : "bottom-5 right-5";
 });
 
 function close() {
-  animateOut(); // Lancer l'animation de disparition
+  animateOut();
   if (hideTimeout) {
     clearTimeout(hideTimeout);
   }
@@ -106,7 +111,7 @@ function animateOut() {
     duration: 500,
     easing: "easeInExpo",
     complete: () => {
-      visible.value = false; // Masquer l'élément après l'animation
+      visible.value = false;
     },
   });
 }
@@ -116,7 +121,7 @@ watch(
   async () => {
     visible.value = true;
     await nextTick();
-    animateIn(); // Lancer l'animation d'apparition
+    animateIn();
 
     if (hideTimeout) {
       clearTimeout(hideTimeout);
@@ -132,5 +137,13 @@ watch(
 <style scoped>
 .fixed {
   z-index: 50;
+}
+
+@media (max-width: 640px) {
+  .fixed {
+    max-width: calc(100% - 1rem);
+    left: 0.5rem;
+    right: 0.5rem;
+  }
 }
 </style>

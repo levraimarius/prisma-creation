@@ -90,7 +90,7 @@
                     class="w-5 h-5 stroke-current"
                   />
                 </div>
-                <p class="text-gray-600">{{ review.text }}</p>
+                <p class="text-left text-gray-600">{{ review.text }}</p>
               </div>
             </div>
           </div>
