@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../pages/Home.vue";
 import PrivacyPolicy from "../pages/PrivacyPolicy.vue";
 import TermsOfUse from "../pages/TermsOfUse.vue";
+import townRoutes from "./townRoutes";
 
 const routes = [
   {
@@ -19,6 +20,7 @@ const routes = [
     name: "TermsOfUse",
     component: TermsOfUse,
   },
+  ...townRoutes, // Ajoutez les routes des villes dynamiquement
 ];
 
 const router = createRouter({
