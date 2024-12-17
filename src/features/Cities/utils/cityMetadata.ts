@@ -1,9 +1,8 @@
-import type { CityData, CityMetadata } from "../types";
-import { cities } from "../data/cities";
+import type { CityData, CityMetadata } from "../../../types/city";
 
 export function generateCityMetadata(cityData: CityData): CityMetadata {
-  const { city, displayName, region, department, coordinates } = cityData;
-  const url = `https://prismacreation.fr/nos-agences/${region}/${department}/${city}`;
+  const { city, displayName, region, department } = cityData;
+  const url = `https://prismacreation.fr/nos-agences/${region}/${department}/${city.toLowerCase()}`;
 
   return {
     ...cityData,
@@ -14,15 +13,20 @@ export function generateCityMetadata(cityData: CityData): CityMetadata {
   };
 }
 
-export function getCityBySlug(slug: string): CityData | undefined {
-  return cities.find((city) => city.city === slug);
+export function getCityBySlug(
+  slug: string,
+  cities: CityData[]
+): CityData | undefined {
+  return cities.find((city) => city.city.toLowerCase() === slug.toLowerCase());
 }
 
-export function getCityMetadata(slug: string): CityMetadata {
-  const cityData = getCityBySlug(slug);
+export function getCityMetadata(
+  slug: string,
+  cities: CityData[]
+): CityMetadata {
+  const cityData = getCityBySlug(slug, cities);
 
   if (!cityData) {
-    // Return fallback metadata for unknown cities
     return generateFallbackMetadata(slug);
   }
 
@@ -39,8 +43,11 @@ function generateFallbackMetadata(slug: string): CityMetadata {
     city: slug,
     displayName,
     region: "hauts-de-france",
-    department: "oise", // Default department
-    coordinates: { latitude: 49.4295, longitude: 2.0809 }, // Beauvais coordinates as default
+    department: "oise",
+    coordinates: {
+      latitude: 49.4295,
+      longitude: 2.0809,
+    },
   };
 
   return generateCityMetadata(fallbackData);

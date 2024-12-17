@@ -117,7 +117,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import { LinkedInIcon, ArrowPathIcon } from "@heroicons/vue/24/outline";
+import { ArrowPathIcon } from "@heroicons/vue/24/outline";
 import LogoPrismaCreationFooter from "../../assets/logo_prismacreation_footer.svg";
 import BackToTop from "../common/BackToTop.vue";
 
@@ -147,14 +147,6 @@ const navigationColumns = [
   },
 ];
 
-const socials = [
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/company/prisma-creation",
-    icon: ArrowPathIcon,
-  },
-];
-
 const legalLinks = [
   {
     name: "Politique de confidentialité",
@@ -168,7 +160,6 @@ const handleSubscribe = async () => {
 
   isLoading.value = true;
   try {
-    // Implementation for newsletter subscription would go here
     await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log("Subscribed:", email.value);
     email.value = "";

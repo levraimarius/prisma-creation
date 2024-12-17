@@ -2,11 +2,11 @@
   <div class="hidden md:block">
     <div class="flex items-center space-x-4">
       <NavigationLink
-        v-for="item in navigation"
+        v-for="item in navigationItems"
         :key="item.name"
         :href="item.href"
         :is-active="activeSection === item.href"
-        :onClick="() => onNavigate(item.href)"
+        :onClick="() => handleNavigate(item.href)"
       >
         {{ item.name }}
       </NavigationLink>
@@ -23,11 +23,21 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import NavigationLink from "./NavigationLink.vue";
+import type { NavigationItem } from "../../composables/useNavigation";
 
-defineProps({
-  navigation: Array,
-  activeSection: String,
-  onNavigate: Function,
-});
+interface Props {
+  navigation: NavigationItem[];
+  activeSection: string;
+  onNavigate: (href: string) => void;
+}
+
+const props = defineProps<Props>();
+
+const navigationItems = computed(() => props.navigation);
+
+const handleNavigate = (href: string) => {
+  props.onNavigate(href);
+};
 </script>

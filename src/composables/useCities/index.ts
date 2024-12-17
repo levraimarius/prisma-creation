@@ -1,7 +1,7 @@
 import { computed } from "vue";
 import { cities } from "../../router/cities";
 import { slugify } from "../../utils/stringUtils";
-import type { City } from "./types";
+import type { CityMetadata } from "./types";
 
 export function useCities(limit: number = 10) {
   const availableCities = computed(() => {
@@ -12,7 +12,6 @@ export function useCities(limit: number = 10) {
       path: `/nos-agences/${slugify(city.region)}/${slugify(city.department)}/${slugify(city.city)}`,
     }));
 
-    // Shuffle and limit the results
     return [...cityList].sort(() => Math.random() - 0.5).slice(0, limit);
   });
 
@@ -21,4 +20,4 @@ export function useCities(limit: number = 10) {
   };
 }
 
-export type { City } from "./types";
+export type { CityMetadata };

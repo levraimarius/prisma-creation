@@ -1,5 +1,4 @@
 import type { SEOMetadata } from "./types";
-import { computed } from "vue";
 
 export function generateLocalBusinessSchema(metadata: SEOMetadata) {
   return {

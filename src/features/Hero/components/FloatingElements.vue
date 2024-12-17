@@ -1,35 +1,46 @@
 <template>
   <div class="absolute inset-0 pointer-events-none">
-    <!-- Large Bubbles -->
     <div
       v-for="(bubble, index) in largeBubbles"
       :key="`large-${index}`"
       class="floating-bubble large"
-      :style="bubble.style"
+      :style="bubbleToStyle(bubble)"
       :class="bubble.class"
     ></div>
 
-    <!-- Medium Bubbles -->
     <div
       v-for="(bubble, index) in mediumBubbles"
       :key="`medium-${index}`"
       class="floating-bubble medium"
-      :style="bubble.style"
+      :style="bubbleToStyle(bubble)"
       :class="bubble.class"
     ></div>
 
-    <!-- Small Bubbles -->
     <div
       v-for="(bubble, index) in smallBubbles"
       :key="`small-${index}`"
       class="floating-bubble small"
-      :style="bubble.style"
+      :style="bubbleToStyle(bubble)"
       :class="bubble.class"
     ></div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { CSSProperties } from "vue";
+
+interface BubbleStyle {
+  left: string;
+  top: string;
+  animationDelay: string;
+  animationDuration: string;
+}
+
+interface Bubble {
+  style: BubbleStyle;
+  class: string;
+}
+
 const colors = [
   "bg-indigo-200",
   "bg-blue-200",
@@ -38,8 +49,15 @@ const colors = [
   "bg-pink-200",
 ];
 
-const createBubbles = (count: number, sizeClass: string) => {
-  return Array.from({ length: count }, (_, i) => ({
+const bubbleToStyle = (bubble: Bubble): CSSProperties => ({
+  left: bubble.style.left,
+  top: bubble.style.top,
+  animationDelay: bubble.style.animationDelay,
+  animationDuration: bubble.style.animationDuration,
+});
+
+const createBubbles = (count: number): Bubble[] => {
+  return Array.from({ length: count }, () => ({
     style: {
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
@@ -50,9 +68,9 @@ const createBubbles = (count: number, sizeClass: string) => {
   }));
 };
 
-const largeBubbles = createBubbles(3, "large");
-const mediumBubbles = createBubbles(5, "medium");
-const smallBubbles = createBubbles(8, "small");
+const largeBubbles = createBubbles(3);
+const mediumBubbles = createBubbles(5);
+const smallBubbles = createBubbles(8);
 </script>
 
 <style scoped>

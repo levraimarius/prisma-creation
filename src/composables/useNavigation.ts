@@ -1,7 +1,12 @@
 import { ref, onMounted, onUnmounted } from "vue";
 
+export interface NavigationItem {
+  name: string;
+  href: string;
+}
+
 export const useNavigation = () => {
-  const navigation = [
+  const navigation: NavigationItem[] = [
     { name: "Accueil", href: "#accueil" },
     { name: "Nos services", href: "#services" },
     { name: "Questions", href: "#faq" },
@@ -14,7 +19,8 @@ export const useNavigation = () => {
   const detectSectionInView = () => {
     const sections = navigation.map((item) =>
       document.querySelector(item.href)
-    );
+    ) as HTMLElement[];
+
     const scrollPos = window.scrollY + window.innerHeight / 3;
 
     sections.forEach((section) => {
@@ -41,9 +47,4 @@ export const useNavigation = () => {
     navigation,
     activeSection,
   };
-};
-
-export type NavigationItem = {
-  name: string;
-  href: string;
 };

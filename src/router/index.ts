@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import type { RouteLocationNormalized } from "vue-router";
 import Home from "../pages/Home.vue";
 import PrivacyPolicy from "../pages/PrivacyPolicy.vue";
 import TermsOfUse from "../pages/TermsOfUse.vue";
@@ -31,31 +32,29 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-  scrollBehavior(to, from, savedPosition) {
-    // Handle anchor links within the same page
+  scrollBehavior(
+    to: RouteLocationNormalized,
+    _: RouteLocationNormalized,
+    savedPosition
+  ) {
     if (to.hash) {
       return {
         el: to.hash,
         behavior: "smooth",
-        top: 80, // Offset for fixed header
+        top: 80,
       };
     }
 
-    // Return to saved position when using browser back/forward
     if (savedPosition) {
       return savedPosition;
     }
 
-    // Scroll to top for new page navigations
     return { top: 0 };
   },
 });
 
-// Navigation guard to ensure proper scroll behavior
-router.beforeEach((to, from, next) => {
-  // If it's a new navigation (not just a hash change)
-  if (to.path !== from.path) {
-    // Reset scroll position before navigation
+router.beforeEach((to, _, next) => {
+  if (to.path !== _.path) {
     window.scrollTo(0, 0);
   }
   next();

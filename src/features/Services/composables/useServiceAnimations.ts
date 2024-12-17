@@ -8,7 +8,7 @@ export function useServiceAnimations() {
   const defaultConfig: AnimationConfig = {
     duration: 600,
     easing: "cubicBezier(0.4, 0, 0.2, 1)",
-    delay: (el, index) => index * 50,
+    delay: (_, index) => index * 50,
   };
 
   const onBeforeEnter = (el: Element) => {
@@ -45,7 +45,7 @@ export function useServiceAnimations() {
       opacity: 0,
       scale: 0.95,
       translateY: -30,
-      duration: defaultConfig.duration * 0.66, // Slightly faster exit
+      duration: defaultConfig.duration * 0.66,
       easing: defaultConfig.easing,
       delay:
         typeof defaultConfig.delay === "function"

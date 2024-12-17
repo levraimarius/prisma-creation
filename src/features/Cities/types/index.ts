@@ -1,6 +1,13 @@
-export interface Coordinates {
-  latitude: number;
-  longitude: number;
+export interface City {
+  name: string;
+  region: string;
+  department: string;
+  path: string;
+}
+
+export interface CityRoute {
+  path: string;
+  name: string;
 }
 
 export interface CityData {
@@ -8,19 +15,8 @@ export interface CityData {
   displayName: string;
   region: string;
   department: string;
-  coordinates: Coordinates;
-}
-
-export interface CityMetadata extends CityData {
-  url: string;
-  title: string;
-  description: string;
-  image?: string;
-}
-
-export interface City {
-  name: string;
-  region: string;
-  department: string;
-  path: string;
+  coordinates: {
+    latitude: number;
+    longitude: number;
+  };
 }

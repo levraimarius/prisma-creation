@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import anime from "animejs";
-import type { AnimeInstance, AnimeParams } from "animejs";
+import type { AnimeParams } from "animejs";
 
 export function useServiceAnimations() {
   const isAnimating = ref(false);

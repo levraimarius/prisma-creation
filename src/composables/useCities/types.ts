@@ -1,6 +1,1 @@
-export interface City {
-  name: string;
-  region: string;
-  department: string;
-  path: string;
-}
+export type { City, CityData, CityMetadata, CityRoute } from "../../types/city";
