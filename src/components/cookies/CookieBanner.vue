@@ -10,45 +10,52 @@
     >
       <div
         v-if="showBanner"
-        class="fixed z-50 w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg pointer-events-auto bottom-4 right-4 ring-1 ring-black ring-opacity-5"
+        class="fixed z-50 w-full overflow-hidden bg-white shadow-lg pointer-events-auto cookie-banner"
       >
-        <div class="p-4">
-          <div class="flex items-start">
-            <div class="flex-shrink-0">
-              <InformationCircleIcon class="w-6 h-6 text-indigo-400" />
-            </div>
-            <div class="flex-1 w-0 ml-3">
-              <p class="text-sm font-medium text-gray-900">
-                Cookies & Confidentialité
-              </p>
-              <p class="mt-1 text-sm text-gray-500">
-                Nous utilisons des cookies pour améliorer votre expérience.
-                <button
-                  @click="showModal = true"
-                  class="font-medium text-indigo-600 hover:text-indigo-500"
-                >
-                  En savoir plus
-                </button>
-              </p>
-              <div class="flex gap-2 mt-4">
-                <button
-                  @click="acceptCookies"
-                  class="inline-flex justify-center px-3 py-1.5 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Accepter
-                </button>
-                <button
-                  @click="rejectCookies"
-                  class="inline-flex justify-center px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Refuser
-                </button>
+        <div class="w-full px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div
+            class="flex flex-col gap-4 sm:items-center sm:flex-row sm:justify-between"
+          >
+            <!-- Content Section -->
+            <div class="flex items-start flex-1 gap-3">
+              <div class="flex-shrink-0">
+                <InformationCircleIcon
+                  class="w-5 h-5 text-indigo-400 sm:w-6 sm:h-6"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-gray-900 sm:text-base">
+                  Cookies & Confidentialité
+                </p>
+                <p class="mt-1 text-xs text-gray-500 sm:text-sm">
+                  Nous utilisons des cookies pour améliorer votre expérience.
+                  <button
+                    @click="showModal = true"
+                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                  >
+                    En savoir plus
+                  </button>
+                </p>
               </div>
             </div>
-            <div class="flex flex-shrink-0 ml-4">
+
+            <!-- Actions Section -->
+            <div class="flex items-center gap-3 sm:flex-shrink-0">
+              <button
+                @click="rejectCookies"
+                class="flex-1 px-3 py-1.5 text-xs sm:text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:flex-none"
+              >
+                Refuser
+              </button>
+              <button
+                @click="acceptCookies"
+                class="flex-1 px-3 py-1.5 text-xs sm:text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:flex-none"
+              >
+                Accepter
+              </button>
               <button
                 @click="closeBanner"
-                class="inline-flex text-gray-400 rounded-md hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                class="hidden text-gray-400 rounded-md sm:flex hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 <span class="sr-only">Fermer</span>
                 <XMarkIcon class="w-5 h-5" />
@@ -56,6 +63,15 @@
             </div>
           </div>
         </div>
+
+        <!-- Mobile Close Button (Fixed Position) -->
+        <button
+          @click="closeBanner"
+          class="absolute text-gray-400 rounded-md top-4 right-4 sm:hidden hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          <span class="sr-only">Fermer</span>
+          <XMarkIcon class="w-5 h-5" />
+        </button>
       </div>
     </Transition>
 
@@ -94,3 +110,31 @@ onMounted(() => {
   }
 });
 </script>
+
+<style scoped>
+.cookie-banner {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top: 1px solid rgb(229, 231, 235);
+}
+
+@media (min-width: 640px) {
+  .cookie-banner {
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 42rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(229, 231, 235);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cookie-banner {
+    max-width: 48rem;
+  }
+}
+</style>
