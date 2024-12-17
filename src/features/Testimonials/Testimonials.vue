@@ -1,5 +1,8 @@
 <template>
-  <section id="avis" class="px-6 py-24 bg-white sm:py-32 lg:px-8">
+  <section
+    id="avis"
+    class="px-6 py-24 bg-gray-50 sm:py-32 lg:px-8"
+  >
     <div class="container mx-auto text-center">
       <h2 class="mb-4 text-4xl font-bold text-gray-900" ref="servicesTitle">
         Avis de nos clients
@@ -116,33 +119,50 @@ import { StarIcon as StarIconOutline } from "@heroicons/vue/24/outline";
 const reviews = ref([
   {
     id: 1,
-    name: "Julien D.",
+    name: "Maniaq",
     rating: 5,
-    text: "Prestataire Haute Gamme avec un rapport qualité prix d'exception. Un rendu rapide totalement conforme à mes exigeances et besoins avec des révisions acceptées jusqu'à la livraison finale du produit. Je recommande vivement ce prestataire. J'avais demandé la réalisation d'une page internet dans 5 langues pour un nouveau produit.",
+    text: "Prisma Création a su capturer l’essence de Maniaq avec un site moderne et dynamique, parfaitement adapté à notre cible. Leur écoute et souci du détail ont permis un résultat en totale adéquation avec nos attentes. Professionnels et innovants, ils sont un partenaire fiable pour des projets ambitieux.",
     profileImage:
-      "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/63c7478bfca7402d8a27cfd21b5b49ba-1693472992800/59549a35-b4b4-4596-8ca7-de1f01239405.jpg",
+      "https://maniaq.fr/wp-content/uploads/2024/11/cropped-logo-M-2-192x192.png",
   },
   {
     id: 2,
-    name: "Elisa R.",
+    name: "Polignac Distribution",
     rating: 5,
-    text: "Je recommande vivement Marius, avec qui j'ai eu le plaisir de collaborer. C'est un développeur web consciencieux. Il fait preuve d'une excellente capacité à comprendre rapidement les besoins du projet et à proposer des solutions techniques solides et optimisées. Sa rigueur et son sens du détail garantissent toujours un code...",
-    profileImage: "https://dam.malt.com/anonymous?w=80&force_format=png",
-  },
-  {
-    id: 3,
-    name: "Prince Hubert de Polignac",
-    rating: 5,
-    text: "Nous avons confié la création de notre site web à Prisma Création, et le résultat a dépassé nos attentes. Leur équipe a su cerner notre vision et nous a livré un site moderne, intuitif et performant, tout en respectant les délais. Une collaboration fluide et professionnelle que nous recommandons vivement !",
+    text: "Nous avons confié la création de notre site à Prisma Création, et le résultat a dépassé nos attentes : un site moderne, intuitif et performant, livré dans les délais. Leur équipe a su comprendre notre vision. Une collaboration fluide et professionnelle que nous recommandons vivement !",
     profileImage: "https://polignac.fr/favicon-96x96.png",
   },
   {
-    id: 4,
-    name: "Maniaq",
+    id: 3,
+    name: "MrBumperCar",
     rating: 5,
-    text: "Prisma Création a parfaitement capturé l’essence de Maniaq dans un site moderne et dynamique, aligné avec notre cible. Leur écoute et leur souci du détail ont permis un résultat en adéquation avec nos attentes. Le professionnalisme et l’innovation de Prisma Création font d’eux un partenaire fiable pour des projets ambitieux.",
+    text: "Prestataire haut de gamme avec un excellent rapport qualité-prix. Travail rapide, conforme à mes attentes, avec des révisions acceptées jusqu'à la livraison finale. Je recommande vivement ! J'avais demandé une page web en 5 langues pour un nouveau produit, et le résultat est parfait.",
     profileImage:
-      "https://maniaq.fr/wp-content/uploads/2024/11/cropped-logo-M-2-192x192.png",
+      "https://mrbumpercar.com/wp-content/uploads/2024/10/mrbumpercar_f-removebg-preview-288x300.png",
+  },
+  {
+    id: 4,
+    name: "SimulDigital",
+    rating: 5,
+    text: "Nous sommes très satisfaits de la prestation de Prisma Création ! Leur expertise et leur professionnalisme ont permis de créer un site moderne, intuitif et conforme à nos attentes. Une collaboration fluide, avec des délais respectés et un réel souci du détail. Nous recommandons vivement !",
+    profileImage:
+      "https://jimdo-storage.freetls.fastly.net/image/394441740/72440deb-1f79-4afa-b58a-9ef0d101b490.png",
+  },
+  {
+    id: 5,
+    name: "Vitality",
+    rating: 5,
+    text: "Nous sommes très satisfaits de la prestation de Prisma Création ! Leur expertise et leur professionnalisme ont permis de créer un site moderne, intuitif et conforme à nos attentes. Une collaboration fluide, avec des délais respectés et un réel souci du détail. Nous recommandons vivement !",
+    profileImage:
+      "https://jimdo-storage.freetls.fastly.net/image/394441740/72440deb-1f79-4afa-b58a-9ef0d101b490.png",
+  },
+  {
+    id: 6,
+    name: "IDEESP6",
+    rating: 5,
+    text: "Prisma Création est un prestataire haut de gamme qui a parfaitement répondu à nos attentes. Leur expertise a permis de développer une fonctionnalité personnalisée sur WordPress, totalement adaptée à nos besoins. Professionnalisme, écoute et qualité au rendez-vous. Nous recommandons vivement !",
+    profileImage:
+      "https://ideesp6.com/wp-content/uploads/2024/03/Logo-Gimix.png",
   },
 ]);
 

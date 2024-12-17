@@ -1,3 +1,5 @@
+@import "./animations.css";
+
 @font-face {
   font-family: "Inter";
   src: url("https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2")
@@ -12,4 +14,66 @@ body {
 h1,
 h2 {
   font-family: "Barlow Condensed", sans-serif;
+}
+
+/* Improved Focus States */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Enhanced Button Styles */
+.btn {
+  @apply px-4 py-2 transition-all duration-200 rounded-lg;
+}
+
+.btn-primary {
+  @apply text-white bg-indigo-600 hover:bg-indigo-700;
+}
+
+.btn-secondary {
+  @apply text-gray-900 bg-gray-100 hover:bg-gray-200;
+}
+
+/* Card Styles */
+.card {
+  @apply overflow-hidden bg-white shadow-lg rounded-xl hover-lift smooth-transition;
+}
+
+/* Form Styles */
+.form-input {
+  @apply w-full px-4 py-2 transition-all duration-200 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200;
+}
+
+/* Enhanced Section Spacing */
+.section {
+  @apply py-16 md:py-24;
+}
+
+/* Improved Container Max-Width */
+.container {
+  @apply px-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
+}
+
+/* Gradient Backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, #818cf8 100%);
+}
+
+/* Enhanced Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
