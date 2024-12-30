@@ -30,7 +30,7 @@ export function useContactForm() {
   const serviceID = "service_dlp2fdl";
   const templateID = "template_xcmfgyi";
 
-  const sendEmail = async () => {
+  const sendEmail = async (formData: ContactForm) => {
     if (!agreed.value) {
       triggerErrorNotification(
         "Veuillez accepter la politique de confidentialité avant d'envoyer le formulaire."
@@ -50,10 +50,10 @@ export function useContactForm() {
       isLoading.value = true;
 
       const templateParams = {
-        first_name: form.value.firstName,
-        last_name: form.value.lastName,
-        user_email: form.value.email,
-        message: form.value.message,
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        user_email: formData.email,
+        message: formData.message,
       };
 
       emailjs.init(emailjsUserID);

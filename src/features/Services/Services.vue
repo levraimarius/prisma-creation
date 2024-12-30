@@ -14,15 +14,9 @@
         <!-- Services Grid -->
         <div
           class="grid gap-8 mt-12 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
+          style="perspective: 1000px"
         >
-          <TransitionGroup
-            :css="false"
-            @before-enter="onBeforeEnter"
-            @enter="onEnter"
-            @leave="onLeave"
-            tag="div"
-            class="contents"
-          >
+          <TransitionGroup :css="false" tag="div" class="contents">
             <ServiceCard
               v-for="(service, index) in services"
               :key="service.id"
@@ -54,7 +48,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useServices } from "./composables/useServices";
-import { useServiceAnimations } from "./composables/useServiceAnimations";
 import ServiceCard from "./components/ServiceCard/ServiceCard.vue";
 import ServiceModal from "./components/ServiceModal/ServiceModal.vue";
 import SectionHeader from "./components/SectionHeader.vue";
@@ -64,7 +57,6 @@ import CategorySwitch from "./components/CategorySwitch/CategorySwitch.vue";
 import type { Service } from "./types";
 
 const { services, selectedCategory } = useServices();
-const { onBeforeEnter, onEnter, onLeave } = useServiceAnimations();
 const selectedService = ref<Service | null>(null);
 
 const openServiceModal = (serviceId: string) => {
