@@ -4,11 +4,11 @@ export function generateLocalBusinessSchema(metadata: SEOMetadata) {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": metadata.url || "https://prismacreation.fr",
+    "@id": metadata.url,
     name: "Prisma Création",
     image: metadata.image || "/prismacreation.png",
     description: metadata.description,
-    url: metadata.url || "https://prismacreation.fr",
+    url: metadata.url,
     telephone: "+33123456789",
     address: {
       "@type": "PostalAddress",
@@ -32,5 +32,36 @@ export function generateLocalBusinessSchema(metadata: SEOMetadata) {
       opens: "09:00",
       closes: "18:00",
     },
+    sameAs: [
+      "https://www.linkedin.com/company/prisma-creation",
+      "https://www.facebook.com/prismacreation",
+    ],
+  };
+}
+
+export function generateBreadcrumbSchema(metadata: SEOMetadata) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Accueil",
+        item: "https://prismacreation.fr",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Nos agences",
+        item: "https://prismacreation.fr/nos-agences",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: metadata.city,
+        item: metadata.url,
+      },
+    ],
   };
 }

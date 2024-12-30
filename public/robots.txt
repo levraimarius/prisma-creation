@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /nos-agences/
+Allow: /nos-agences/hauts-de-france/
+Allow: /nos-agences/hauts-de-france/*/
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://prismacreation.fr/sitemap.xml
+Sitemap: https://prismacreation.fr/sitemap-towns.xml
