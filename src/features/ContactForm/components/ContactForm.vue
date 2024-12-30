@@ -75,7 +75,7 @@ import FormField from "./FormField.vue";
 import PrivacyAgreement from "./PrivacyAgreement.vue";
 import ReCaptcha from "./ReCaptcha.vue";
 
-const props = defineProps<{
+defineProps<{
   isLoading: boolean;
 }>();
 
