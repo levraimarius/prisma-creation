@@ -37,7 +37,7 @@ export function useContactForm() {
     notificationType.value = type;
     notificationTitle.value = title;
     notificationMessage.value = message;
-    notificationTrigger.value += 1;
+    notificationTrigger.value++;
   };
 
   const sendEmail = async (formData: ContactForm) => {

@@ -1,7 +1,7 @@
 <template>
   <section
     id="accueil"
-    class="relative min-h-screen px-6 py-24 overflow-hidden lg:px-8"
+    class="relative flex items-center min-h-screen px-6 overflow-hidden lg:px-8"
   >
     <!-- Background -->
     <HeroBackground />
@@ -9,15 +9,17 @@
     <!-- Floating Elements -->
     <FloatingElements />
 
-    <div
-      class="container relative flex flex-col items-center justify-center mx-auto"
-    >
-      <div class="w-full text-center md:w-3/4 lg:w-2/3">
-        <!-- Main Content -->
-        <HeroContent />
+    <div class="container relative mx-auto">
+      <div
+        class="flex flex-col items-center justify-center w-full py-16 md:py-24"
+      >
+        <div class="w-full text-center md:w-3/4 lg:w-2/3">
+          <!-- Main Content -->
+          <HeroContent />
 
-        <!-- Call to Action -->
-        <HeroActions />
+          <!-- Call to Action -->
+          <HeroActions />
+        </div>
       </div>
     </div>
 

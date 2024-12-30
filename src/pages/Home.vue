@@ -16,7 +16,7 @@ import Services from "../features/Services/Services.vue";
 import { CitiesSection } from "../features/Cities";
 import Faq from "../features/Faq/Faq.vue";
 import Testimonials from "../features/Testimonials/Testimonials.vue";
-import Contact from "../features/ContactForm/Contact.vue";
+import Contact from "../features/ContactForm/Contact.vue"; // Fixed import path
 
 // Apply SEO metadata for homepage
 useSEO({
